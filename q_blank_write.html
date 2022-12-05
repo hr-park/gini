@@ -21,13 +21,7 @@
 	<script src="js/common.js"></script>
 	<script>
 		function fncAddData(){
-			var popW = 1015;
-			var popH = 780;
-			var posL= (document.body.clientWidth / 2) - (popW / 2);
-			var posT= (document.body.clientHeight / 2) - ((popH / 2) - 40);
-			posL += window.screenLeft;
-		
-			window.open('pop_data_blank.html','','width='+ popW +',height='+ popH +',top='+ posT +',left='+ posL +',resizable=no,scrollbars=yes');
+			$('.pop_data_blank, .dim').show();
 		}
 	</script>
 </head>
@@ -123,6 +117,7 @@
 				<a href="javascript://" class="btn_add"><span>문제 추가</span></a>
 				<a href="javascript://" class="btn_activity btn_md bg_blue">Activity 실행</a>
 			</div>
+			<div data-include-path="./pop_data_blank.html"></div>
 		</div>
 		<!--// Content -->
 		<!-- Footer -->

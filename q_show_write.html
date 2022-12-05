@@ -55,28 +55,17 @@
 				}
 			});
 		});
+		//데이터 추가 팝업
 		function fncAddData(){
-			$('.pop_data').show();
+			$('.pop_data, .dim').show();
 		}
 		//팝업 퍼블 검수용
 		function fncAddDataNone(){
-			var popW = 1015;
-			var popH = 780;
-			var posL= (document.body.clientWidth / 2) - (popW / 2);
-			var posT= (document.body.clientHeight / 2) - ((popH / 2) - 40);
-			posL += window.screenLeft;
-		
-			window.open('pop_data_none.html','','width='+ popW +',height='+ popH +',top='+ posT +',left='+ posL +',resizable=no,scrollbars=yes');
+			$('.pop_data_none, .dim').show();
 		}
 		//팝업 퍼블 검수용
 		function fncAddDataBefore(){
-			var popW = 1015;
-			var popH = 780;
-			var posL= (document.body.clientWidth / 2) - (popW / 2);
-			var posT= (document.body.clientHeight / 2) - ((popH / 2) - 40);
-			posL += window.screenLeft;
-		
-			window.open('pop_data_before.html','','width='+ popW +',height='+ popH +',top='+ posT +',left='+ posL +',resizable=no,scrollbars=yes');
+			$('.pop_data_before, .dim').show();
 		}
 	</script>
 </head>
@@ -200,6 +189,8 @@
 				<a href="javascript://" class="btn_activity btn_md bg_blue">Activity 실행</a>
 			</div>
 			<div data-include-path="./pop_data.html"></div>
+			<div data-include-path="./pop_data_none.html"></div><!-- 퍼블 검수용 -->
+			<div data-include-path="./pop_data_before.html"></div><!-- 퍼블 검수용 -->
 		</div>
 		<!--// Content -->
 		<!-- Footer -->
