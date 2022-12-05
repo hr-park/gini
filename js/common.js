@@ -19,23 +19,18 @@ $(document).ready(function(){
 		$(this).next('.list_depth2').slideToggle();
 	});
 });
-//팝업닫기
+//팝업닫기 공통
 function popClose(){
+	$('html, body').css('overflow','visible');
 	$('.pop_wrap, .dim').fadeOut('fast');
 }
 //데이터 추가 팝업
 function fncAddData(){
-	$('.pop_data, .dim').show();
+	$('html, body').css('overflow','hidden');
+	$('#pop_data, .dim').show();
 }
 //데이터 추가 팝업 - 빈칸Activity
 function fncAddDataBlank(){
+	$('html, body').css('overflow','hidden');
 	$('#pop_data_blank, .dim').show();
-}
-//팝업 퍼블 검수용
-function fncAddDataNone(){
-	$('#pop_data_none, .dim').show();
-}
-//팝업 퍼블 검수용
-function fncAddDataBefore(){
-	$('#pop_data_before, .dim').show();
 }
