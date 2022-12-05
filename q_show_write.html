@@ -21,20 +21,42 @@
 	<script src="js/common.js"></script>
 	<script>
 		$(function(){
-			$("#file").on('change',function(){
-				var fileName = $("#file").val();
-				$(".file_name").val(fileName);
-				$(this).parents('.file_box').append('<a href="#" class="btn_preview">파일 미리보기</a>');
+			// 공통파일 로드(퍼블용)
+			window.addEventListener('load', function() {
+				var allElements = document.getElementsByTagName('*');
+				Array.prototype.forEach.call(allElements, function(el) {
+					var includePath = el.dataset.includePath;
+					if (includePath) {
+						var xhttp = new XMLHttpRequest();
+						xhttp.onreadystatechange = function () {
+							if (this.readyState == 4 && this.status == 200) {
+								el.outerHTML = this.responseText;
+							}
+						};
+						xhttp.open('GET', includePath, true);
+						xhttp.send();
+					}
+				});
+			});
+			//파일선택
+			$(".file_box input[type='file']").on('change',function(){
+				$(this).hide();
+				var fileName = $(this).val();
+				var file = $(this).prop("files")[0];
+				var blobURL = window.URL.createObjectURL(file);
+
+				$(this).parent('.file_box').find(".file_name").val(fileName);
+				$(this).parent('.file_box').find(".file_name").attr('readonly',true);
+				
+				if($(this).next('.btn_preview').length < 1){
+					$(this).after('<a href="'+blobURL+'" class="btn_preview" target="_blank">파일 미리보기</a>');
+				}else{
+					$(this).next('.btn_preview').attr('href', blobURL);
+				}
 			});
 		});
 		function fncAddData(){
-			var popW = 1015;
-			var popH = 780;
-			var posL= (document.body.clientWidth / 2) - (popW / 2);
-			var posT= (document.body.clientHeight / 2) - ((popH / 2) - 40);
-			posL += window.screenLeft;
-		
-			window.open('pop_data.html','','width='+ popW +',height='+ popH +',top='+ posT +',left='+ posL +',resizable=no,scrollbars=yes');
+			$('.pop_data').show();
 		}
 		//팝업 퍼블 검수용
 		function fncAddDataNone(){
@@ -113,8 +135,8 @@
 						<label for="">문제(정답) 영역</label>
 						<div class="file_box">
 							<input class="file_name" placeholder="정답을 입력하세요">
-							<label for="file">파일선택</label> 
-							<input type="file" id="file">
+							<label for="file1">파일선택</label> 
+							<input type="file" id="file1">
 							<!--<a href="#" class="btn_preview">파일 미리보기</a>-->
 						</div>
 					</div>
@@ -134,8 +156,8 @@
 						<!-- file_box -->
 						<div class="file_box">
 							<input class="file_name" placeholder="정답을 입력하세요">
-							<label for="file">파일선택</label> 
-							<input type="file" id="file">
+							<label for="file2">파일선택</label> 
+							<input type="file" id="file2">
 						</div>
 						<!--// file_box -->
 					</div>
@@ -155,8 +177,8 @@
 						<label for="">문제(정답) 영역</label>
 						<div class="file_box">
 							<input class="file_name" placeholder="정답을 입력하세요">
-							<label for="file">파일선택</label> 
-							<input type="file" id="file">
+							<label for="file3">파일선택</label> 
+							<input type="file" id="file3">
 						</div>
 					</div>
 					<div class="inp_field">
@@ -177,6 +199,7 @@
 				<a href="javascript://" class="btn_add"><span>문제 추가</span></a>
 				<a href="javascript://" class="btn_activity btn_md bg_blue">Activity 실행</a>
 			</div>
+			<div data-include-path="./pop_data.html"></div>
 		</div>
 		<!--// Content -->
 		<!-- Footer -->
