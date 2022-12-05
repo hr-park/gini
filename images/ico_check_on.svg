@@ -1,0 +1,16 @@
+<svg id="checkbox" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="사각형_75" data-name="사각형 75" width="10" height="8" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="사각형_74" data-name="사각형 74" fill="#557cf2" stroke="#557cf2" stroke-width="1">
+    <rect width="18" height="18" rx="2" stroke="none"/>
+    <rect x="0.5" y="0.5" width="17" height="17" rx="1.5" fill="none"/>
+  </g>
+  <g id="그룹_38" data-name="그룹 38" transform="translate(4 5)">
+    <g id="그룹_38-2" data-name="그룹 38" clip-path="url(#clip-path)">
+      <path id="패스_3" data-name="패스 3" d="M4.352,8a1.126,1.126,0,0,1-.786-.323L.364,4.555A1.232,1.232,0,0,1,.31,2.862a1.118,1.118,0,0,1,1.625-.056L4.25,5.063,7.967.43A1.119,1.119,0,0,1,9.587.278a1.231,1.231,0,0,1,.145,1.686L5.235,7.57A1.137,1.137,0,0,1,4.423,8l-.07,0" transform="translate(0.001 0)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+<svg id="ico_folder" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="22" viewBox="0 0 22 22">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#24bcff"/>
+      <stop offset="0.753" stop-color="#557cf2"/>
+      <stop offset="1" stop-color="#557cf2"/>
+    </linearGradient>
+  </defs>
+  <rect id="사각형_22" data-name="사각형 22" width="22" height="22" opacity="0" fill="url(#linear-gradient)"/>
+  <path id="folder_open_FILL1_wght400_GRAD0_opsz48" d="M5.5,24a1.435,1.435,0,0,1-1.037-.462A1.435,1.435,0,0,1,4,22.5V9.5a1.435,1.435,0,0,1,.463-1.038A1.435,1.435,0,0,1,5.5,8h7.025l1.5,1.5H22.5A1.587,1.587,0,0,1,24,11H5.5V22.5l2.55-10H25.5L22.825,22.85a1.431,1.431,0,0,1-.55.875A1.771,1.771,0,0,1,21.25,24Z" transform="translate(-3.5 -5)" fill="url(#linear-gradient)"/>
+</svg>

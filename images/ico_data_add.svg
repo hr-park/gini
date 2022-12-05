@@ -1,0 +1,9 @@
+<svg id="ico_edit" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <rect id="사각형_41" data-name="사각형 41" width="20" height="20" fill="#557cf2" opacity="0"/>
+  <g id="ico_library_add">
+    <rect id="사각형_23" data-name="사각형 23" width="20" height="20" fill="#557cf2" opacity="0"/>
+    <g id="ico_library_add-2" data-name="ico_library_add">
+      <path id="library_add_FILL1_wght400_GRAD0_opsz48" d="M14.75,16.55h1.5v-3.3h3.3v-1.5h-3.3V8.45h-1.5v3.3h-3.3v1.5h3.3ZM8.5,21A1.538,1.538,0,0,1,7,19.5V5.5a1.439,1.439,0,0,1,.45-1.05A1.439,1.439,0,0,1,8.5,4h14a1.439,1.439,0,0,1,1.05.45A1.439,1.439,0,0,1,24,5.5v14A1.538,1.538,0,0,1,22.5,21Zm-3,3a1.439,1.439,0,0,1-1.05-.45A1.439,1.439,0,0,1,4,22.5V7H5.5V22.5H21V24Z" transform="translate(-4 -4)" fill="#557cf2"/>
+    </g>
+  </g>
+</svg>
