@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge ,chrome=1" />
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">-->
+	<title>Interactive Contents</title>
+	<link rel="canonical" href="" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="" />
+	<meta property="og:site_name" content="" />
+	<meta property="og:description" content="" />
+	<meta property="og:image" content="" />
+	<meta property="og:url" content="" />
+	<!--link rel="shortcut icon" href="favicon.ico">-->
+	<link rel="stylesheet" type="text/css" href="css/NotoSansKR.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/common.js"></script>
+	<script>
+	$(function(){
+		$('.menu a.all').click(function(){
+			$('.menu .list_depth2').slideDown();
+		});
+		$('.menu .list_depth1 > li > a').click(function(){
+			$(this).next('.list_depth2').slideToggle();
+		});
+	});
+	</script>
+</head>
+<body>
+<!-- pop_wrap -->
+<div class="pop_wrap pop_data">
+	<div class="pop_head">
+		<h1>교재 선택</h1>
+		<button type="button" onclick="javascript:window.close();" class="btn_pop_close">팝업닫기</button>
+	</div>
+	<!-- pop_cont -->
+	<div class="pop_cont">
+		<div class="search_wrap">
+			<form name="" id="" method="" action=""> 
+				<div class="search_box">
+					<input type="text" name="" id="" placeholder="검색어를 입력하세요" value="" onfocus="">
+					<a href="javascript://" class="btn_search"></a>
+				</div>
+			</form>
+		</div>
+		<div class="q_box">
+			<div class="menu">
+				<div class="scr_area">
+					<a href="javascript://" class="all">전체교재</a>
+					<ul class="list_depth1">
+						<li>
+							<a href="javascript://">Phonics</a>
+							<ul class="list_depth2">
+								<li><a href="javascript://">ABC Adventures</a></li>
+								<li><a href="javascript://">EBRIDGE <strong>Alphabet</strong></a></li>
+								<li><a href="javascript://">EBRIDGE Phonics</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="javascript://">Phonics</a>
+							<ul class="list_depth2">
+								<li><a href="javascript://">ABC Adventures ABC Adventures ABC</a></li>
+								<li><a href="javascript://">EBRIDGE <strong>Alphabet</strong></a></li>
+								<li><a href="javascript://">EBRIDGE Phonics</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="javascript://">Phonics</a>
+							<ul class="list_depth2">
+								<li><a href="javascript://">ABC Adventures ABC Adventures ABC</a></li>
+								<li><a href="javascript://">EBRIDGE <strong>Alphabet</strong></a></li>
+								<li><a href="javascript://">EBRIDGE Phonics</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="javascript://">Phonics</a>
+							<ul class="list_depth2">
+								<li><a href="javascript://">ABC Adventures ABC Adventures ABC</a></li>
+								<li><a href="javascript://">EBRIDGE <strong>Alphabet</strong></a></li>
+								<li><a href="javascript://">EBRIDGE Phonics</a></li>
+								<li><a href="javascript://">ABC Adventures ABC Adventures ABC</a></li>
+								<li><a href="javascript://">EBRIDGE <strong>Alphabet</strong></a></li>
+								<li><a href="javascript://">EBRIDGE Phonics</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="keyword_area">
+					<span class="txt">Alphabet</span>
+					<span class="num">1/60</span>
+					<div class="btn_direction">
+						<button class="btn_up" disabled>위로</button>
+						<button class="btn_down">아래로</button>
+					</div>
+				</div>
+			</div>
+			<div class="tb_area">
+				<!--<p class="no_data">검색 결과가 없습니다. 검색어를 확인해주세요.</p> 검색 결과 없을 때 -->
+				<div class="unit_wrap">
+					<h2>Unit 선택</h2>
+					<table class="tb_unit">
+						<colgroup>
+							<col style="width:30px;">
+							<col style="width:190px;">
+							<col style="width:30px;">
+							<col style="width:190px;">
+							<col style="width:30px;">
+							<col style="width:190px;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th></th>
+								<th>Unit / Lesson</th>
+								<th></th>
+								<th>Unit / Lesson</th>
+								<th></th>
+								<th>Unit / Lesson</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- 유닛 선택 전
+							<tr>
+								<td></td>
+								<td class="t_center">-</td>
+								<td></td>
+								<td class="t_center">-</td>
+								<td></td>
+								<td class="t_center">-</td>
+							</tr>
+							-->
+							<!-- -->
+							<tr>
+								<td class="chk">
+									<input type="checkbox" name="" id="chk_unit1" value="">
+									<label for="chk_unit1"></label>
+								</td>
+								<td>Unit 1</td>
+								<td class="chk">
+									<input type="checkbox" name="" id="chk_unit2" value="">
+									<label for="chk_unit2"></label>
+								</td>
+								<td>Unit 2</td>
+								<td class="chk">
+									<input type="checkbox" name="" id="chk_unit3" value="">
+									<label for="chk_unit3"></label>
+								</td>
+								<td>Unit 3</td>
+							</tr>
+							<!-- -->
+							<tr>
+								<td class="chk">
+									<input type="checkbox" name="" id="chk_unit4" value="">
+									<label for="chk_unit4"></label>
+								</td>
+								<td>Unit 4</td>
+								<td class="chk">
+									<input type="checkbox" name="" id="chk_unit5" value="">
+									<label for="chk_unit5"></label>
+								</td>
+								<td>Unit 5</td>
+								<td class="chk">
+									<input type="checkbox" name="" id="chk_unit6" value="">
+									<label for="chk_unit6"></label>
+								</td>
+								<td>Unit 6</td>
+							</tr>
+							<tr>
+								<td class="chk">
+									<input type="checkbox" name="" id="chk_unit7" value="">
+									<label for="chk_unit7"></label>
+								</td>
+								<td>Unit 7</td>
+								<td class="chk">
+									<input type="checkbox" name="" id="chk_unit8" value="">
+									<label for="chk_unit8"></label>
+								</td>
+								<td>Unit 8</td>
+								<td class="chk">
+									<input type="checkbox" name="" id="chk_unit9" value="">
+									<label for="chk_unit9"></label>
+								</td>
+								<td>Unit 9</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="pagenation">
+						<a class="page_first" href="javascript://">처음</a>
+						<a class="page_prev" href="javascript://">이전</a>
+						<a class="page_no on" href="javascript://">1</a>
+						<a class="page_no" href="javascript://"><span>2</span></a>
+						<a class="page_no" href="javascript://"><span>3</span></a>
+						<a class="page_no" href="javascript://"><span>4</span></a>
+						<a class="page_no" href="javascript://"><span>5</span></a>
+						<a class="page_next" href="javascript://">다음</a>
+						<a class="page_last" href="javascript://">마지막</a>
+					</div>
+				</div>
+				<div class="data_wrap">
+					<h2>데이터 선택</h2>
+					<table class="tb_data_head">
+						<colgroup>
+							<col style="width:30px;">
+							<col style="width:150px;">
+							<col style="width:190px;">
+							<col style="*;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th></th>
+								<th>IMG</th>
+								<th>문제(정답)</th>
+								<th>보기</th>
+							</tr>
+						</thead>
+					</table>
+					<div class="tb_scr_box">
+						<table class="tb_data_body">
+							<colgroup>
+								<col style="width:30px;">
+								<col style="width:150px;">
+								<col style="width:190px;">
+								<col style="*;">
+							</colgroup>
+							<tbody>
+								<!-- 유닛 선택 전
+								<tr>
+									<td></td>
+									<td class="t_center">-</td>
+									<td class="t_center">-</td>
+									<td class="t_center">-</td>
+								</tr>
+								-->
+								<!-- -->
+								<tr>
+									<td class="chk">
+										<input type="checkbox" name="" id="chk_q1" value="">
+										<label for="chk_q1"></label>
+									</td>
+									<td class="t_center"><img src="images/btn_preview.svg" alt=""></td>
+									<td>It had wings</td>
+									<td>
+										<ul class="q_list">
+											<li>They had blunt teeth</li>
+											<li>An egg for my lunch </li>
+											<li>The dog looked at the cat</li>
+										</ul>
+									</td>
+								</tr>
+								<!-- -->
+								<tr>
+									<td class="chk">
+										<input type="checkbox" name="" id="chk_q2" value="">
+										<label for="chk_q2"></label>
+									</td>
+									<td class="t_center"><img src="images/btn_preview.svg" alt=""></td>
+									<td>It had wings</td>
+									<td>
+										<ul class="q_list">
+											<li>They had blunt teeth</li>
+											<li>An egg for my lunch </li>
+											<li>The dog looked at the cat</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td class="chk">
+										<input type="checkbox" name="" id="chk_q3" value="">
+										<label for="chk_q3"></label>
+									</td>
+									<td class="t_center"><img src="images/btn_preview.svg" alt=""></td>
+									<td>It had wings</td>
+									<td>
+										<ul class="q_list">
+											<li>They had blunt teeth They had blunt teeth They had blunt teeth They had blunt teeth</li>
+											<li>An egg for my lunch </li>
+											<li>The dog looked at the cat</li>
+										</ul>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="pagenation">
+						<a class="page_first" href="javascript://">처음</a>
+						<a class="page_prev" href="javascript://">이전</a>
+						<a class="page_no on" href="javascript://">1</a>
+						<a class="page_no" href="javascript://"><span>2</span></a>
+						<a class="page_no" href="javascript://"><span>3</span></a>
+						<a class="page_no" href="javascript://"><span>4</span></a>
+						<a class="page_no" href="javascript://"><span>5</span></a>
+						<a class="page_next" href="javascript://">다음</a>
+						<a class="page_last" href="javascript://">마지막</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--// pop_cont -->
+	<!-- pop_foot -->
+	<div class="pop_foot">
+		<a href="javascript://" class="">선택 완료</a>
+	</div>
+	<!--// pop_foot -->
+</div>
+<!--// pop_wrap -->
+</body>
+</html>
