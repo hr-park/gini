@@ -55,18 +55,6 @@
 				}
 			});
 		});
-		//데이터 추가 팝업
-		function fncAddData(){
-			$('.pop_data, .dim').show();
-		}
-		//팝업 퍼블 검수용
-		function fncAddDataNone(){
-			$('.pop_data_none, .dim').show();
-		}
-		//팝업 퍼블 검수용
-		function fncAddDataBefore(){
-			$('.pop_data_before, .dim').show();
-		}
 	</script>
 </head>
 <body>
@@ -188,6 +176,7 @@
 				<a href="javascript://" class="btn_add"><span>문제 추가</span></a>
 				<a href="javascript://" class="btn_activity btn_md bg_blue">Activity 실행</a>
 			</div>
+			<div class="dim"></div>
 			<div data-include-path="./pop_data.html"></div>
 			<div data-include-path="./pop_data_none.html"></div><!-- 퍼블 검수용 -->
 			<div data-include-path="./pop_data_before.html"></div><!-- 퍼블 검수용 -->

@@ -20,9 +20,25 @@
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/common.js"></script>
 	<script>
-		function fncAddData(){
-			$('.pop_data_blank, .dim').show();
-		}
+	$(function(){
+		// 공통파일 로드(퍼블용)
+		window.addEventListener('load', function() {
+			var allElements = document.getElementsByTagName('*');
+			Array.prototype.forEach.call(allElements, function(el) {
+				var includePath = el.dataset.includePath;
+				if (includePath) {
+					var xhttp = new XMLHttpRequest();
+					xhttp.onreadystatechange = function () {
+						if (this.readyState == 4 && this.status == 200) {
+							el.outerHTML = this.responseText;
+						}
+					};
+					xhttp.open('GET', includePath, true);
+					xhttp.send();
+				}
+			});
+		});
+	});
 	</script>
 </head>
 <body>
@@ -117,6 +133,7 @@
 				<a href="javascript://" class="btn_add"><span>문제 추가</span></a>
 				<a href="javascript://" class="btn_activity btn_md bg_blue">Activity 실행</a>
 			</div>
+			<div class="dim"></div>
 			<div data-include-path="./pop_data_blank.html"></div>
 		</div>
 		<!--// Content -->
