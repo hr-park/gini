@@ -28,7 +28,7 @@ function fncAddData(){
 	$('.pop_data, .dim').show();
 }
 //데이터 추가 팝업 - 빈칸Activity
-function fncAddData(){
+function fncAddDataBlank(){
 	$('#pop_data_blank, .dim').show();
 }
 //팝업 퍼블 검수용
