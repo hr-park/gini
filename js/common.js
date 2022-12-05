@@ -10,6 +10,14 @@ $(document).ready(function(){
 	$('.sel_box > a').click(function(){
 		$(this).parent('.sel_box').toggleClass('on');
 	});
+	//데이터 추가 팝업 전체교재 메뉴
+	$('.pop_data .menu a.all').click(function(){
+		$('.menu .list_depth2').slideDown();
+	});
+	//데이터 추가 팝업 전체교재 메뉴
+	$('.pop_data .menu .list_depth1 > li > a').click(function(){
+		$(this).next('.list_depth2').slideToggle();
+	});
 });
 //팝업닫기
 function popClose(){
@@ -19,7 +27,7 @@ function popClose(){
 function fncAddData(){
 	$('.pop_data, .dim').show();
 }
-//데이터 추가 팝업 - 빈칸
+//데이터 추가 팝업 - 빈칸Activity
 function fncAddData(){
 	$('#pop_data_blank, .dim').show();
 }
