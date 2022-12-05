@@ -17,13 +17,17 @@ function popClose(){
 }
 //데이터 추가 팝업
 function fncAddData(){
-	$('.pop_data_blank, .dim').show();
+	$('.pop_data, .dim').show();
+}
+//데이터 추가 팝업 - 빈칸
+function fncAddData(){
+	$('#pop_data_blank, .dim').show();
 }
 //팝업 퍼블 검수용
 function fncAddDataNone(){
-	$('.pop_data_none, .dim').show();
+	$('#pop_data_none, .dim').show();
 }
 //팝업 퍼블 검수용
 function fncAddDataBefore(){
-	$('.pop_data_before, .dim').show();
+	$('#pop_data_before, .dim').show();
 }
