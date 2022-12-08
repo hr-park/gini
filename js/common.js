@@ -8,6 +8,7 @@ $(document).ready(function(){
 	});
 	//selectbox
 	$('.sel_box > a').click(function(){
+		$(this).parent('.sel_box').siblings('.sel_box').removeClass('on');
 		$(this).parent('.sel_box').toggleClass('on');
 	});
 	//데이터 추가 팝업 전체교재 메뉴
@@ -19,18 +20,16 @@ $(document).ready(function(){
 		$(this).next('.list_depth2').slideToggle();
 	});
 });
-//팝업닫기 공통
-function popClose(){
-	$('html, body').css('overflow','visible');
-	$('.pop_wrap, .dim').fadeOut('fast');
+//팝업 열기
+function openPop(id) {
+	$('body').css('overflow','hidden');
+	$('.dim').show();
+	$('.pop_wrap').hide();
+	$('#'+ id).show();
 }
-//데이터 추가 팝업
-function fncAddData(){
-	$('html, body').css('overflow','hidden');
-	$('#pop_data, .dim').show();
-}
-//데이터 추가 팝업 - 빈칸Activity
-function fncAddDataBlank(){
-	$('html, body').css('overflow','hidden');
-	$('#pop_data_blank, .dim').show();
+//팝업 닫기
+function closePop(id) {
+	$('body').css('overflow','visible');
+	$('.dim').hide();
+	$('#'+ id).hide();
 }
