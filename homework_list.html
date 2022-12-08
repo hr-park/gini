@@ -21,18 +21,7 @@
 	<script src="js/common.js"></script>
 	<script>
 		$(function(){
-			$("#chk_all").click(function() {
-				if($("#chk_all").is(":checked")) $("input[name=chk]").prop("checked", true);
-				else $("input[name=chk]").prop("checked", false);
-			});
-
-			$("input[name=chk]").click(function() {
-				var total = $("input[name=chk]").length;
-				var checked = $("input[name=chk]:checked").length;
-
-				if(total != checked) $("#chk_all").prop("checked", false);
-				else $("#chk_all").prop("checked", true); 
-			});
+			
 		});
 	</script>
 </head>
@@ -65,8 +54,8 @@
 				<div class="inner">
 					<h2>나의 Activity 리스트</h2>
 					<ul class="menu_list">
-						<li class="on"><a href="#">나의 Activity 리스트</a></li>
-						<li><a href="#">숙제 리스트</a></li>
+						<li><a href="#">나의 Activity 리스트</a></li>
+						<li class="on"><a href="#">숙제 리스트</a></li>
 					</ul>
 				</div>
 			</div>
@@ -74,13 +63,20 @@
 				<div class="list_wrap">
 					<!-- list_top -->
 					<div class="list_top">
-						<!--<a href="javascript://" class="btn_batch btn_sm_ico">일괄 숙제 생성</a>-->
 						<div class="sel_wrap">
 							<div class="sel_box">
 								<a href="javascript://">Activity명 (전체)</a>
 								<ul>
 									<li><a href="javascrpit://">Fill in the Blank</a></li>
 									<li><a href="javascrpit://">Quiz show</a></li>
+								</ul>
+							</div>
+							<div class="sel_box">
+								<a href="javascript://">숙제기간(전체)</a>
+								<ul>
+									<li><a href="javascrpit://">진행중</a></li>
+									<li><a href="javascrpit://">예정</a></li>
+									<li><a href="javascrpit://">종료</a></li>
 								</ul>
 							</div>
 							<div class="sel_box">
@@ -95,70 +91,68 @@
 					<!--// list_top -->
 					<table class="">
 						<colgroup>
-							<col style="width:60px;">
-							<col style="width:%;">
-							<col style="width:200px;">
+							<col style="width:*">
+							<col style="width:240px;">
 						</colgroup>
 						<thead>
 							<tr>
-								<th>
-									<input type="checkbox" name="chk" id="chk_all" value="">
-									<label for="chk_all"></label>
-								</th>
-								<th>Activity 항목</th>
-								<th>날짜</th>
+								<th>숙제정보</th>
+								<th>숙제기간</th>
 							</tr>
 						</thead>
 						<tbody>
 							<!-- -->
 							<tr>
-								<td class="t_center">
-									<input type="checkbox" name="chk" id="chk_1" value="">
-									<label for="chk_1"></label>
-								</td>
 								<td>
 									<div class="tit_td">
-										<div class="thumb"><img src="images/img_sample.png" alt="Quiz show 썸네일"></div>
+										<div class="thumb">
+											<img src="images/img_sample.png" alt="Quiz show 썸네일">
+											<span class="save">임시저장</span>
+										</div>
 										<div class="txt_box">
 											<span class="label">Quiz Show</span>
-											<p class="tit_activity"><a href="activity_view.html">20221031_나만의 Quizshow(1)</a></p>
+											<p class="tit_activity"><a href="homework_view.html">20221031_나만의 Quizshow(1) 20221031_나만의 Quizshow(1) 20221031_나만의 Quizshow(1) 20221031_나만의 Quizshow(1)</a></p>
+											<p class="date">생성일: 2022.12.12 10:33</p>
 										</div>
 									</div>
 								</td>
-								<td class="t_center">2022.10.19 10:33</td>
+								<td class="t_center">
+									<span class="ico_status ing">진행중</span><!-- 진행중 ing, 예정 standby, 종료 end class -->
+									2022.10.19 ~ 2022.10.24
+								</td>
 							</tr>
 							<!-- -->
 							<tr>
-								<td class="t_center">
-									<input type="checkbox" name="chk" id="chk_2" value="">
-									<label for="chk_2"></label>
-								</td>
 								<td>
 									<div class="tit_td">
-										<div class="thumb"><img src="images/img_sample.png" alt="Quiz show 썸네일"></div>
-										<div class="txt_box">
-											<span class="label">Quiz Show</span>
-											<p class="tit_activity"><a href="activity_view.html">20221031_나만의 Quizshow(1)</a></p>
-										</div>
-									</div>
-								</td>
-								<td class="t_center">2022.10.19 10:33</td>
-							</tr>
-							<tr>
-								<td class="t_center">
-									<input type="checkbox" name="chk" id="chk_3" value="">
-									<label for="chk_3"></label>
-								</td>
-								<td>
-									<div class="tit_td">
-										<div class="thumb"><img src="images/img_sample.png" alt="Quiz show 썸네일"></div>
+										<div class="thumb"><img src="images/img_sample2.png" alt="Fill in the Blank 썸네일"></div>
 										<div class="txt_box">
 											<span class="label">단어맞추기</span>
-											<p class="tit_activity"><a href="activity_view.html">20221031_나만의 Quizshow(1)</a></p>
+											<p class="tit_activity"><a href="homework_view.html">20221031_설정한 숙제제목</a></p>
+											<p class="date">생성일: 2022.12.12 10:33</p>
 										</div>
 									</div>
 								</td>
-								<td class="t_center">2022.10.19 10:33</td>
+								<td class="t_center">
+									<span class="ico_status standby">예정</span>
+									2022.10.19 ~ 2022.10.24
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="tit_td">
+										<div class="thumb"><img src="images/img_sample2.png" alt="Fill in the Blank 썸네일"></div>
+										<div class="txt_box">
+											<span class="label">단어맞추기</span>
+											<p class="tit_activity"><a href="homework_view.html">20221031_설정한 숙제제목</a></p>
+											<p class="date">생성일: 2022.12.12 10:33</p>
+										</div>
+									</div>
+								</td>
+								<td class="t_center">
+									<span class="ico_status end">종료</span>
+									2022.10.19 ~ 2022.10.24
+								</td>
 							</tr>
 						</tbody>
 					</table>

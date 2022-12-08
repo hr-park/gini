@@ -22,18 +22,6 @@
 	<script src="js/jquery-ui.min.js"></script>
 	<script src="js/common.js"></script>
 	<script>
-		$(function(){
-			//숙제 기간 설정
-			$("#s_date, #e_date").datepicker({
-				dateFormat: "yy-mm-dd",
-			});
-			//숙제 기간, 시간 설정 후 코드발급 팝업 OPEN
-			$('#pop_task_make .btn_code').click(function(){
-				$('#pop_task_make').hide();
-				$('#pop_code').show();
-			});
-		});
-
 		//코드(URL)복사
 		function clip(){
 			var copyText = $('.pop_code .url input').attr('value');
@@ -78,21 +66,41 @@
 				<div class="inner">
 					<h2>나의 Activity 리스트</h2>
 					<ul class="menu_list">
-						<li class="on"><a href="#">나의 Activity 리스트</a></li>
-						<li><a href="#">숙제 리스트</a></li>
+						<li><a href="#">나의 Activity 리스트</a></li>
+						<li class="on"><a href="#">숙제 리스트</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="inner">
 				<div class="view_wrap">
 					<div class="view_top">
-						<p>학습 Activity 상세</p>
-						<a href="javascript:openPop('pop_task_make');" class="btn_make btn_sm_ico bg_blue">숙제만들기</a>
+						<p>숙제 상세 <strong class="color_blue">(ABCD-1234)</strong></p>
+						<a href="javascript:openPop('pop_code');" class="btn_code btn_sm_ico bg_blue">코드발급</a>
 					</div>
 					<div class="activity_area">
 						<img src="images/img_sample.png" alt="Quiz show 썸네일"> <!-- activity 실행페이지 iframe으로 불러올 예정 -->
 					</div>
-					<table class="">
+					<table>
+						<colgroup>
+							<col style="width:%;">
+							<col style="width:360px;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>Activity명 > (설정한Activity제목)</th>
+								<th>설정 구분 / 문제 개수</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- -->
+							<tr>
+								<td>Quiz show<br>20221031_나만의_Quizshow(1)</td>
+								<td class="t_center">나만의 학습Activity / -</td>
+							</tr>
+							<!-- -->
+						</tbody>
+					</table>
+					<table class="mt20">
 						<colgroup>
 							<col style="width:360px;">
 							<col style="width:360px;">
@@ -100,71 +108,59 @@
 						</colgroup>
 						<thead>
 							<tr>
-								<th>Activity명<br>(설정한Activity제목)</th>
-								<th>설정 구분 / 문제 개수</th>
-								<th>Activity 생성 날짜</th>
+								<th>1 문제 당 시간 / 문제개수</th>
+								<th>숙제 기간</th>
+								<th>숙제생성 날짜</th>
 							</tr>
 						</thead>
 						<tbody>
 							<!-- -->
 							<tr>
-								<td>Quiz show<br>20221031_나만의_Quizshow(1)</td>
-								<td class="t_center">나만의 학습Activity / 5개</td>
+								<td class="t_center">10초 / 5개</td>
+								<td class="t_center">
+									<span class="ico_status mr5 ing">진행중</span><!-- 진행중 ing, 예정 standby, 종료 end class -->
+									2022.10.19 ~ 2022.10.24
+								</td>
 								<td class="t_center">2022.10.25 09:33</td>
 							</tr>
 							<!-- -->
 						</tbody>
 					</table>
+					<!-- 코드 발급 완료 시-->
+					<p class="tb_tit mt40">숙제 완료 학생</p>
+					<table class="tb_type2">
+						<colgroup>
+							<col style="width:360px;">
+							<col style="width:360px;">
+							<col style="width:%;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th></th>
+								<th>숙제 스코어</th>
+								<th>숙제 완료 날짜</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- -->
+							<tr>
+								<td class="t_center">홍길동</td>
+								<td class="t_center">320</td>
+								<td class="t_center">2022.10.25</td>
+							</tr>
+							<!-- -->
+							<tr>
+								<td class="t_center">홍길동</td>
+								<td class="t_center">320</td>
+								<td class="t_center">2022.10.25</td>
+							</tr>
+						</tbody>
+					</table>
+					<!--// 코드 발급 완료 시-->
 					<a href="javascript://" class="btn_md_blue">목록으로</a>
 				</div>
 			</div>
 			<div class="dim"></div>
-			<!-- pop_task_make -->
-			<div id="pop_task_make" class="pop_wrap pop_task_make">
-				<div class="pop_head">
-					<p class="tit">숙제 만들기 - 20221031_나만의_Fill in the Blank1 20221031_나만의_Fill in the Blank1 </p>
-					<button type="button" onclick="javascript:closePop('pop_task_make');" class="btn_pop_close">팝업닫기</button>
-				</div>
-				<!-- pop_cont -->
-				<div class="pop_cont">
-					<div class="tit_box">
-						<input type="text" name="" id="" placeholder="" value="(나만의)Activity명 | 문제개수:5개" onfocus="">
-					</div>
-					<div class="set_area">
-						<dl>
-							<dt>숙제기간</dt>
-							<dd class="cal_area">
-								<input type="text" id="s_date" class="inp_cal">
-								<span class="term">~</span>
-								<input type="text" id="e_date" class="inp_cal">
-							</dd>
-						</dl>
-						<dl>
-							<dt>1 문제 당 시간 설정</dt>
-							<dd class="radio_area">
-								<input type="radio" name="q_time" id="q_time_10s" value="">
-								<label for="q_time_10s">10초</label>
-							</dd>
-							<dd class="radio_area">
-								<input type="radio" name="q_time" id="q_time_20s" value="">
-								<label for="q_time_20s">20초</label>
-							</dd>
-							<dd class="radio_area">
-								<input type="radio" name="q_time" id="q_time_30s" value="">
-								<label for="q_time_30s">30초</label>
-							</dd>
-						</dl>
-					</div>
-				</div>
-				<!--// pop_cont -->
-				<!-- pop_foot -->
-				<div class="pop_foot">
-					<a href="javascript://" class="btn_code">코드 발급</a>
-				</div>
-				<!--// pop_foot -->
-			</div>
-			<!--// pop_task_make -->
-
 			<!-- pop_code -->
 			<div id="pop_code" class="pop_wrap pop_code">
 				<div class="pop_head">
