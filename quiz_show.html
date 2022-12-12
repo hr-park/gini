@@ -21,8 +21,8 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="/js/jquery.ui.touch-punch.min.js"></script>
-	<script type="text/javascript" src="/js/fullscreen.js"></script>
+	<script type="text/javascript" src="js/jquery.ui.touch-punch.min.js"></script>
+	<script type="text/javascript" src="js/fullscreen.js"></script>
 	<script src="js/common.js"></script>
 	<script type="text/javascript">
 	$(function() {
@@ -34,7 +34,7 @@
 			}
 			if (/Mobi|Android/i.test(navigator.userAgent)) {
 				// 모바일인 경우
-				screenfull.request();
+				//screenfull.request();
 			}
 			game();
 		});
@@ -43,7 +43,9 @@
 	var round = 0;
 	function game(){
 		round++;
-	});
+		$('.activity').show();
+		$('.round_' + round).show();
+	}
 
 	function timer(){
 		var setTime = 2000;
@@ -115,42 +117,60 @@
 		/*a.btn_x{display:block;position:fixed;left:94.58%;top:1.26%;width:4.64%;z-index:350;}*/
 		.btn_retry{display:none;position:absolute;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,.7);z-index:300;}
 		.btn_retry a{display:block;position:fixed;left:50%;top:50%;width:17.54%;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%);}
+		.ico_o, .ico_x, .result_box{display:none}
 
-		.wrap{position:absolute;margin:0 auto;display:inline-block;text-align:center;left:50%;top:50%;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%);overflow:hidden;}
+		.activity{display:none;position:absolute;margin:0 auto;text-align:center;left:50%;top:50%;width:100%;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%);overflow:hidden;}
 		.main_bg{max-width:100%;max-height:100%;text-align:center;position:relative;}
 		.main_bg img{vertical-align:middle;text-align:center;max-width:100vw;max-height:100vh;width:auto;}
-
-		.game{display:none;position:absolute;left:0;top:0;width:100%;height:100%;}
+		.activity .head{position:relative;left:0;top:0;z-index:100;width:100%;}
+		.activity .head h1{position:absolute;left:3.12%;top:0;width:22.26%;}
+		.activity .head .q_num{position:absolute;left:0;top:0;}
+		.activity .head .timer{position:absolute;left:0;top:0;}
+		.activity .head .score{position:absolute;left:0;top:0;}
+		.activity .q_content{position:relative;height:calc(100vh - 80px);background:#fff;}
+		.activity .q_content .img_area{position:absolute;left:3.125%;top:9.02%;display:flex;justify-content:center;align-items:center;width:39.06%;height:72.58%;background:#eee}
+		.activity .q_content .img_area img{max-width:100%;max-height:100%;}
 	}
 	</style>
 </head>
 <body>
 	<div class="warning">이 페이지는 가로 보기에 최적화 되어 있습니다. 기기를 회전하여 주세요.</div>
 	<div class="starter">
-		<div class="main_bg"><img src="images/activity/main_tt.png" alt="" /></div>
-		<a href="javascript://" class="btn_start"><img src="images/activity/btn_start.png" alt="시작하기" /></a>
+		<div class="main_bg"><img src="images/activity/main_quiz.png" alt="" /></div>
+		<a href="javascript://" class="btn_start"><img src="images/activity/btn_play.png" alt="시작하기" /></a>
 	</div>
 	<div class="activity">
-		<div class="game">
+		<div class="head">
+			<img src="images/activity/bg_head_quiz.png" alt="">
+			<h1><img src="images/activity/tit_quiz.png" alt="QUIZ SHOW" /></h1>
+			<span class="q_num">#01</span>
+			<div class="timer">Time : 20초</div>
+			<div class="score">Score : 200</div>
+		</div>
+		<div class="q_content">
 			<div class="round">
-				<ol>
+				<p class="q_tit">Q. Look at the picture and choose the right sentence.</p>
+				<div class="img_area">
+					<img src="images/activity/img_bear.png" alt="">
+				</div>
+				<ul>
 					<li>
-						<input type="radio" name="" id="">
-						<label for="">draw1</label>
+						<input type="radio" name="q_1" id="q_1_1">
+						<label for="q_1_1">Go past the department store and turn left. The Indian restaurant is on the left.</label>
 					</li>
 					<li>
-						<input type="radio" name="" id="" value="o">
-						<label for="">draw22</label>
+						<input type="radio" name="q_1" id="q_1_2">
+						<label for="q_1_2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </label>
 					</li>
 					<li>
-						<input type="radio" name="" id="">
-						<label for="">draw3</label>
+						<input type="radio" name="q_1" id="q_1_3">
+						<label for="q_1_3">Go past the department store and turn left. The Indian restaurant is on the left.</label>
 					</li>
 					<li>
-						<input type="radio" name="" id="">
-						<label for="">draw3</label>
+						<input type="radio" name="q_1" id="q_1_4">
+						<label for="q_1_4">Go past the department store and turn left. The Indian restaurant is on the left.</label>
 					</li>
-				</ol>
+				</ul>
 			</div>
 			<div class="round">
 				<ol>
@@ -180,7 +200,15 @@
 					</li>
 				</ol>
 			</div>
-			<div class="timer"></div>
+			<span class="ico_o"><img src="images/activity/ico_o.png" alt="O"></span>
+			<span class="ico_x"><img src="images/activity/ico_x.png" alt="X"></span>
+			<div class="result_box">
+				<div class="clear">
+					<p><img src="images/activity/img_clear.png" alt="activity Clear! Score"></p>
+					<strong class="txt_score">200</strong>
+				</div>
+				<a href="javascript://"><img src="images/activity/btn_replay.png" alt="다시풀기"></a>
+			</div>
 		</div>
 	</div>
 </body>
