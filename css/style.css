@@ -262,6 +262,7 @@ footer{position:absolute;right:20px;bottom:20px;font-size:13px;color:#999}
 .pop_wrap .pop_foot a{display:inline-block;width:160px;height:40px;line-height:40px;text-align:center;font-size:18px;font-weight:700;background:#000;color:#fff}
 .pop_wrap .pop_foot a.btn_line{border-color:#557CF2;color:#557CF2;background:#fff}
 
+.pop_data{width:1000px}
 .pop_data .sub_tit{margin-bottom:4px;font-size:20px;font-weight:700;line-height:30px;}
 .pop_data .search_wrap{padding:16px 0;background:#F9FAFC}
 .pop_data .search_box{position:relative;display:flex;justify-content:space-between;width:764px;height:48px;margin:0 auto}
@@ -280,7 +281,8 @@ footer{position:absolute;right:20px;bottom:20px;font-size:13px;color:#999}
 .pop_data .q_box .tb_area{flex:1;padding:20px 30px 30px;}
 .pop_data .q_box .tb_area .no_data{padding-top:130px;color:#666;font-size:16px;line-height:24px;text-align:center;background:url('../images/ico_nodata.svg') no-repeat 50% 40px;}
 .pop_data .keyword_area{display:flex;align-items:center;justify-content:flex-end;width:100%;height:44px;padding:0 10px;box-sizing:border-box;background:#F9FAFC}
-.pop_data .keyword_area .txt{display:inline-block;height:18px;line-height:18px;padding-left:20px;margin-right:auto;font-size:12px;background:url('../images/ico_search2.svg') no-repeat 0 50%;cursor:default;}
+.pop_data .keyword_area .txt{overflow:hidden;display:inline-block;max-width:170px;height:18px;line-height:18px;padding-left:20px;margin-right:auto;font-size:12px;background:url('../images/ico_search2.svg') no-repeat 0 50%;cursor:default; white-space:nowrap;text-overflow:ellipsis;}
+.pop_data .keyword_area .txt:hover{overflow:visible;display:inline-flex;align-items:center;white-space:normal;}
 .pop_data .keyword_area .num{font-size:12px;color:#999}
 .pop_data .keyword_area .btn_direction{display:flex;margin-left:8px;}
 .pop_data .keyword_area .btn_direction button{display:inline-block;width:20px;height:20px;background:#fff;border:1px solid #ccc;background:url('../images/ico_down.svg') no-repeat 50% 50%;text-indent:-9999px}
