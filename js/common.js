@@ -1,4 +1,11 @@
 $(function(){
+	let vh = window.innerHeight * 0.01
+	document.documentElement.style.setProperty('--vh', vh + 'px')
+	$(window).resize(function(){
+		let vh = window.innerHeight * 0.01
+		document.documentElement.style.setProperty('--vh', vh + 'px')
+	});
+
 	$(document).on("click", ".inp_field .btn_del", function (e) {
 		$(this).parents('.row').find('input').val('');
 		$(this).hide();
