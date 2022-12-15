@@ -36,23 +36,33 @@
 				// 모바일인 경우
 				//screenfull.request();
 			}
-			next();
+			start();
+		});
+
+		$('.round').each(function(index){
+			$(this).addClass('round_' + (index+1));
+		
 		});
 	});
 
-	var round = 0;
-	function next(){
-		round++;
+	function start(){
 		timer();
-		if (round == 1){
-			$('.starter').hide();
-			$('.activity_wrap').show();
-			$('.round').eq(0).show();
+		$('.starter').hide();
+		$('.activity_wrap').show();
+		$('.round_1').show();
+	}
+
+	var round = 0;
+	var qNum = 4;
+	function nextRound(){
+		round++;
+		} else if (round > qNum){
+			$('.result_box').fadeIn('fast');
 		} else{
+			timer();
 			$('.round_' + (round - 1)).hide();
 			$('.round_' + round).show();
 		}
-		
 	}
 
 	function timer(){
@@ -62,45 +72,26 @@
 			$('.timer').text(m + '초');
 			setTime--;
 			if (setTime < 0) {    
-				clearInterval(tid); // 타이머 해제
+				clearInterval(tid);
 			}       
 		}
 	}
 
-
-	$(function(){
-		$('.round').each(function (index, item){
-			var radioName =  'q_' + (index + 1);
-			$(this).addClass('round_'+ (index + 1));
-			$(this).find('input').attr('name', radioName);
-		});
-
-		$('.round ol li').each(function (index, item){
-			var inpName = $(this).find('input').attr('name');
-			var inpLength = $(this).parent('ol').find('li').length;
-			console.log(index);
-			$(this).find('input').addClass(inpName + '_' + inpLength);
-		});
-
-		$("input").change(function(){
-			console.log($(this).val);
-			if($(this).val == 'o'){
-				$('.o_show').show();
-				setTimeout(function(){
-					$('.o_show').hide();
-					nextRound();
-				}, 2000);
-			} else{
-				$('.x_show').show();
-				setTimeout(function(){
-					$('.o_show').hide();
-					nextRound();
-				}, 2000);
-			}
-			
-		});
-
-	});
+	function answerCheck(num){
+		if($('.round'+round).find('.a_rea').find('.q_' + num).attr('data') == 'answer'){
+			$('.ico_o').fadeIn('fast');
+			setTimeout(function(){
+				$('.ico_o').hide();
+				nextRound();
+			}, 2000);
+		} else {
+			$('.ico_x').fadeIn('fast');
+			setTimeout(function(){
+				$('.ico_x').hide();
+				nextRound();
+			}, 2000);
+		}
+	}
 
 	</script>
 	<style type="text/css">
@@ -113,15 +104,7 @@
 	@media screen and (orientation :landscape){
 		html, body{background-color:#000;height:100%;vertical-align:middle;overflow:hidden;}
 		.warning{display:none;}
-		.starter{position: absolute;
-    margin: 0 auto;
-    display: inline-block;
-    text-align: center;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    overflow: hidden;}
+		.starter{overflow:hidden;position:absolute;margin:0 auto;display:inline-block;text-align:center;left:50%;top:50%;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%);}
 		/*.starter .main_bg{position:relative;left:50%;top:50%;z-index:100;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%);}*/
 		.starter a{display:block;position:absolute;left:32.34%;top:70.83%;width:35.31%;z-index:150}
 		/*a.btn_x{display:block;position:fixed;left:94.58%;top:1.26%;width:4.64%;z-index:350;}*/
@@ -130,17 +113,22 @@
 		.ico_o, .ico_x, .result_box{display:none}
 
 		.activity_wrap{display:none;position:absolute;margin:0 auto;text-align:center;left:50%;top:50%;width:100%;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%);overflow:hidden;}
+		.round{display:none;position:absolute;left:0;top:0;width:100%;height:100%;}
 		.main_bg{max-width:100%;max-height:100%;text-align:center;position:relative;}
 		.main_bg img{vertical-align:middle;text-align:center;max-width:100vw;max-height:calc(var(--vh, 1vh) * 100);width:auto;}
+		
 
-		.activity_wrap .head{position:absolute;left:0;top:0;z-index:100;width:100%;}
-		/*.activity_wrap .head h1{position:absolute;left:3.12%;top:13.46%;width:22.26%;}*/
-		.activity_wrap .head .q_num{position:absolute;left:26.95%;top:18.27%;display:flex;align-items:center;justify-content:center;height:41.35%;padding:0 1.56%;border:2px solid #000;}
-		.activity_wrap .head .timer{position:absolute;left:0;top:0;}
-		.activity_wrap .head .score{position:absolute;left:0;top:0;}
-		.activity_wrap .q_content{position:absolute;left:0;top:10.15%;height:calc(100vh - 10.15%);}
-		.activity_wrap .q_content .img_area{position:absolute;left:3.125%;top:9.02%;display:flex;justify-content:center;align-items:center;width:39.06%;height:72.58%;background:#eee}
-		.activity_wrap .q_content .img_area img{max-width:100%;max-height:100%;}
+		.head{position:absolute;left:0;top:0;z-index:100;width:100%;}
+		/*.head h1{position:absolute;left:3.12%;top:13.46%;width:22.26%;}*/
+		.head .q_num{position:absolute;left:26.95%;top:18.27%;display:flex;align-items:center;justify-content:center;height:41.35%;padding:0 1.56%;border:2px solid #000;}
+		.head .timer{position:absolute;left:0;top:0;}
+		.head .score{position:absolute;left:0;top:0;}
+		.q_content{position:absolute;left:0;top:10.15%;height:calc(100vh - 10.15%);}
+		.q_content .img_area{position:absolute;left:3.125%;top:9.02%;display:flex;justify-content:center;align-items:center;width:39.06%;height:72.58%;background:#eee}
+		.q_content .img_area img{max-width:100%;max-height:100%;}
+
+		.result_box{position:absolute;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,.7);z-index:200;}
+		.result_box .score_box{display:block;position:fixed;left:50%;top:50%;width:17.54%;}
 
 		@media screen and (max-height:815px){ 
 		}
@@ -172,57 +160,53 @@
 				<div class="img_area">
 					<img src="images/activity/img_bear.png" alt="">
 				</div>
-				<ul>
-					<li>
-						<input type="radio" name="q_1" id="q_1_1">
-						<label for="q_1_1">Go past the department store and turn left. The Indian restaurant is on the left.</label>
-					</li>
-					<li>
-						<input type="radio" name="q_1" id="q_1_2">
-						<label for="q_1_2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </label>
-					</li>
-					<li>
-						<input type="radio" name="q_1" id="q_1_3">
-						<label for="q_1_3">Go past the department store and turn left. The Indian restaurant is on the left.</label>
-					</li>
-					<li>
-						<input type="radio" name="q_1" id="q_1_4">
-						<label for="q_1_4">Go past the department store and turn left. The Indian restaurant is on the left.</label>
-					</li>
-				</ul>
+				<div class="a_area">
+					<a href="answerCheck(1)" class="q_1" data="answer">Go past the department store and turn left. The Indian restaurant is on the left.</a>
+					<a href="answerCheck(2)" class="q_2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+					<a href="answerCheck(3)" class="q_3">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+					<a href="answerCheck(4)" class="q_4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+				</div>
 			</div>
 			<div class="round">
-				<ol>
-					<li>
-						<input type="radio" name="" id="">
-						<label for="">draw1</label>
-					</li>
-					<li>
-						<input type="radio" name="" id="">
-						<label for="">draw22</label>
-					</li>
-					<li>
-						<input type="radio" name="" id=""  value="o">
-						<label for="">draw3</label>
-					</li>
-				</ol>
+				<p class="q_tit">Q. Look at the picture and choose the right sentence.</p>
+				<div class="img_area">
+					<img src="images/activity/img_bear.png" alt="">
+				</div>
+				<div class="a_area">
+					<a href="javascript://" class="q_1">Go past the department store and turn left. The Indian restaurant is on the left.</a>
+					<a href="javascript://" class="q_2">Lorem Ipsum is simply dummy .</a>
+					<a href="javascript://" class="q_3" data="answer">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+					<a href="javascript://" class="q_4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. dummy text of the printing and typesetting industry.</a>
+				</div>
 			</div>
 			<div class="round">
-				<ol>
-					<li>
-						<input type="radio" name="" id="">
-						<label for="">draw1</label>
-					</li>
-					<li>
-						<input type="radio" name="" id="" value="o">
-						<label for="">draw22</label>
-					</li>
-				</ol>
+				<p class="q_tit">Q. Look at the picture and choose the right sentence.</p>
+				<div class="img_area">
+					<img src="images/activity/img_bear.png" alt="">
+				</div>
+				<div class="a_area">
+					<a href="javascript://" class="q_1">Go past the department store and turn left. The Indian restaurant is on the left.</a>
+					<a href="javascript://" class="q_2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+					<a href="javascript://" class="q_3">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+					<a href="javascript://" class="q_4" data="answer">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+				</div>
+			</div>
+			<div class="round">
+				<p class="q_tit">Q. Look at the picture and choose the right sentence.</p>
+				<div class="img_area">
+					<img src="images/activity/img_bear.png" alt="">
+				</div>
+				<div class="a_area">
+					<a href="javascript://" class="q_1">Go past the department st</a>
+					<a href="javascript://" class="q_2">Lorem Ipsum is simply dummy text of the pr</a>
+					<a href="javascript://" class="q_3" data="answer">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+					<a href="javascript://" class="q_4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+				</div>
 			</div>
 			<span class="ico_o"><img src="images/activity/ico_o.png" alt="O"></span>
 			<span class="ico_x"><img src="images/activity/ico_x.png" alt="X"></span>
 			<div class="result_box">
-				<div class="clear">
+				<div class="score_box">
 					<p><img src="images/activity/img_clear.png" alt="activity Clear! Score"></p>
 					<strong class="txt_score">200</strong>
 				</div>
