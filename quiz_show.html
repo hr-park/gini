@@ -46,46 +46,64 @@
 	});
 
 	function start(){
-		timerOn();
+		setTimer();
 		$('.starter').hide();
 		$('.activity_wrap').show();
 		$('.round_1').show();
 	}
 
 	var round = 0;
+	var score = 0;
 	var qNum = 4;
+	
 	function nextRound(){
 		round++;
 
 		if ((round-1) > qNum){
 			$('.result_box').fadeIn('fast');
+			$('.score_box .txt_score').text(score);
 		} else{
-			timerOn();
+			setTimer();
+			setScore();
 			$('.round_' + (round - 1)).hide();
 			$('.round_' + round).show();
 		}
 	}
 
+	function setScore(){
+		$('.score .num').text(score);
+	}
+
 	//Timer
-	function timerOn(){
+	function setTimer(){
 		var setTime = 20;
 		var myVar;
-		function setTimer(){
+		function intervalTimer(){
 			myVar = setInterval(timer, 1000); 
 		}
-		setTimer();
+		intervalTimer();
 
 		function timer() {
 			$('.timer .num').text(setTime);
 			if(setTime == 0){
 				clearInterval(myVar);
-				wrong();
+				timeOver();
 			}
 			setTime--;
 		}
 	}
 
+	function timeOver(){
+		score -= 50;
+		$('.ico_over').fadeIn('fast');
+		setTimeout(function(){
+			$('.ico_over').hide();
+			nextRound();
+		}, 2000);
+	}
+
 	function wrong(){
+		score -= 10;
 		$('.ico_x').fadeIn('fast');
 		setTimeout(function(){
 			$('.ico_x').hide();
@@ -95,6 +113,7 @@
 
 	function answerCheck(num){
 		if($('.round'+round).find('.a_rea').find('.q_' + num).attr('data') == 'answer'){
+			score += 100;
 			$('.ico_o').fadeIn('fast');
 			setTimeout(function(){
 				$('.ico_o').hide();
@@ -103,6 +122,14 @@
 		} else {
 			wrong();
 		}
+	}
+
+	function goRetry(){
+		round = 1;
+		score = 0;
+
+		$('.result_box, .round').hide();
+		start();
 	}
 
 	</script>
@@ -120,9 +147,8 @@
 		/*.starter .main_bg{position:relative;left:50%;top:50%;z-index:100;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%);}*/
 		.starter a{display:block;position:absolute;left:32.34%;top:70.83%;width:35.31%;z-index:150}
 		/*a.btn_x{display:block;position:fixed;left:94.58%;top:1.26%;width:4.64%;z-index:350;}*/
-		.btn_retry{display:none;position:absolute;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,.7);z-index:300;}
 		.btn_retry a{display:block;position:fixed;left:50%;top:50%;width:17.54%;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%);}
-		.ico_o, .ico_x, .result_box{display:none}
+		.ico_o, .ico_x, .ico_over, .result_box{display:none}
 
 		.activity_wrap{display:none;position:absolute;margin:0 auto;text-align:center;left:50%;top:50%;width:100%;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%);overflow:hidden;}
 		.round{display:none;position:absolute;left:0;top:0;width:100%;height:100%;}
@@ -131,7 +157,6 @@
 		
 
 		.head{position:absolute;left:0;top:0;z-index:100;width:100%;}
-		/*.head h1{position:absolute;left:3.12%;top:13.46%;width:22.26%;}*/
 		.head .q_num{position:absolute;left:26.95%;top:18.27%;display:flex;align-items:center;justify-content:center;height:41.35%;padding:0 1.56%;border:2px solid #000;}
 		.head .timer{position:absolute;left:0;top:0;}
 		.head .score{position:absolute;left:0;top:0;}
@@ -139,8 +164,11 @@
 		.q_content .img_area{position:absolute;left:3.125%;top:9.02%;display:flex;justify-content:center;align-items:center;width:39.06%;height:72.58%;background:#eee}
 		.q_content .img_area img{max-width:100%;max-height:100%;}
 
+		.ico_o, .ico_x, .ico_over{position:absolute;left:0;top:0;}
+
 		.result_box{position:absolute;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,.7);z-index:200;}
 		.result_box .score_box{display:block;position:fixed;left:50%;top:50%;width:17.54%;}
+		.result_box .btn_retry{display:block;position:fixed;left:50%;top:50%;width:17.54%;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%);}
 
 		@media screen and (max-height:815px){ 
 		}
@@ -164,7 +192,7 @@
 			<img src="images/activity/bg_head_quiz_frame.png" alt="">
 			<span class="q_num">#01</span>
 			<div class="timer">Time : <span class="num">20</span>초</div>
-			<div class="score">Score : 200</div>
+			<div class="score">Score : <span class="nume">200</span></div>
 		</div>
 		<div class="q_content">
 			<div class="round">
@@ -185,10 +213,10 @@
 					<img src="images/activity/img_bear.png" alt="">
 				</div>
 				<div class="a_area">
-					<a href="javascript://" class="q_1">Go past the department store and turn left. The Indian restaurant is on the left.</a>
-					<a href="javascript://" class="q_2">Lorem Ipsum is simply dummy .</a>
-					<a href="javascript://" class="q_3" data="answer">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-					<a href="javascript://" class="q_4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. dummy text of the printing and typesetting industry.</a>
+					<a href="answerCheck(1)" class="q_1">Go past the department store and turn left. The Indian restaurant is on the left.</a>
+					<a href="answerCheck(2)" class="q_2" data="answer">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+					<a href="answerCheck(3)" class="q_3">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+					<a href="answerCheck(4)" class="q_4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
 				</div>
 			</div>
 			<div class="round">
@@ -197,10 +225,10 @@
 					<img src="images/activity/img_bear.png" alt="">
 				</div>
 				<div class="a_area">
-					<a href="javascript://" class="q_1">Go past the department store and turn left. The Indian restaurant is on the left.</a>
-					<a href="javascript://" class="q_2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-					<a href="javascript://" class="q_3">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-					<a href="javascript://" class="q_4" data="answer">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+					<a href="answerCheck(1)" class="q_1">Go past the department store and turn left. The Indian restaurant is on the left.</a>
+					<a href="answerCheck(2)" class="q_2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+					<a href="answerCheck(3)" class="q_3" data="answer">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+					<a href="answerCheck(4)" class="q_4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
 				</div>
 			</div>
 			<div class="round">
@@ -209,20 +237,21 @@
 					<img src="images/activity/img_bear.png" alt="">
 				</div>
 				<div class="a_area">
-					<a href="javascript://" class="q_1">Go past the department st</a>
-					<a href="javascript://" class="q_2">Lorem Ipsum is simply dummy text of the pr</a>
-					<a href="javascript://" class="q_3" data="answer">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-					<a href="javascript://" class="q_4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+					<a href="answerCheck(1)" class="q_1">Go past the department store and turn left. The Indian restaurant is on the left.</a>
+					<a href="answerCheck(2)" class="q_2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+					<a href="answerCheck(3)" class="q_3">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+					<a href="answerCheck(4)" class="q_4" data="answer">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
 				</div>
 			</div>
 			<span class="ico_o"><img src="images/activity/ico_o.png" alt="O"></span>
 			<span class="ico_x"><img src="images/activity/ico_x.png" alt="X"></span>
+			<span class="ico_over"><img src="images/activity/ico_over.png" alt="Time over"></span>
 			<div class="result_box">
 				<div class="score_box">
 					<p><img src="images/activity/img_clear.png" alt="activity Clear! Score"></p>
 					<strong class="txt_score">200</strong>
 				</div>
-				<a href="javascript://"><img src="images/activity/btn_replay.png" alt="다시풀기"></a>
+				<a href="javascript:goRetry();" class="btn_retry"><img src="images/activity/btn_replay.png" alt="다시풀기"></a>
 			</div>
 		</div>
 	</div>
