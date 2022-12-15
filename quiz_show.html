@@ -41,8 +41,8 @@
 
 		$('.round').each(function(index){
 			$(this).addClass('round_' + (index+1));
-		
 		});
+		
 	});
 
 	function start(){
@@ -61,6 +61,7 @@
 		round++;
 
 		if ((round-1) == qNum){
+			setScore();
 			$('.result_box').fadeIn('fast');
 			$('.score_box .txt_score').text(score);
 		} else{
@@ -77,13 +78,17 @@
 	}
 
 	function setRound(){
-		$('.q_num .num').text(round);
+		if(round > 10){
+			$('.q_num .num').text(round);
+		}else{
+			$('.q_num .num').text('0'+round);
+		}
 	}
 
 	//Timer
+	var myVar;
 	function setTimer(){
 		var setTime = 10;
-		var myVar;
 		function intervalTimer(){
 			myVar = setInterval(timer, 1000); 
 		}
@@ -97,6 +102,7 @@
 			}
 			setTime--;
 		}
+		
 	}
 
 	function timeOver(){
@@ -118,8 +124,10 @@
 	}
 
 	function answerCheck(num){
+		clearInterval(myVar);
 		if($('.round_'+round).find('.a_area a.chk').length < 1){
-			$('.round_'+round).find('.a_area').find('.q_' + num).addClass('chk');
+			$('.round_'+round).find('.a_area .q_' + num).addClass('chk');
+			$('.round_'+round).find('.a_area .q_' + num).find('img').attr('src','images/activity/ico_chk.svg');
 		}
 		
 		if($('.round_'+round).find('.a_area').find('.q_' + num).attr('data') == 'answer'){
@@ -135,11 +143,16 @@
 	}
 
 	function goRetry(){
-		round = 1;
+		round = 0;
 		score = 0;
 		$('.score .num').text(score);
-		$('.q_num .num').text(round);
-		$('.timer .num').text('0');
+		$('.q_num .num').text('01');
+		$('.timer .num').text('10');
+		$('.q_area .a_area a.chk').removeClass('chk');
+		$('.q_area .a_area a.q_1 .q_num').find('img').attr('src','images/activity/num_1.svg');
+		$('.q_area .a_area a.q_2 .q_num').find('img').attr('src','images/activity/num_2.svg');
+		$('.q_area .a_area a.q_3 .q_num').find('img').attr('src','images/activity/num_3.svg');
+		$('.q_area .a_area a.q_4 .q_num').find('img').attr('src','images/activity/num_4.svg');
 
 		$('.result_box, .round').hide();
 		start();
@@ -175,16 +188,18 @@
 	.head .timer{position:absolute;left:70.78%;top:42.5%;font-size:1.875vw;line-height:2.18vw;color:#fff;font-weight:700;letter-spacing:-.02em;}
 	.head .score{position:absolute;left:87.26%;top:42.5%;font-size:1.875vw;line-height:2.18vw;color:#fff;font-weight:700;letter-spacing:-.02em;}
 	.q_content{position:absolute;left:0;top:14.44%;width:100%;height:calc(100vh - 14.44%);}
-	.q_area{position:absolute;left:49.21%;right:3.43%;top:2.59%;}
+	.q_area{overflow-y:auto;position:absolute;left:49.21%;right:3.43%;top:2.59%;bottom:2.59%;}
 	.q_area .q_tit{margin-bottom:2.92%;text-align:left;font-size:2.81vw;color:#000;line-height:4.21vw;font-weight:700;letter-spacing:-.02em;}
 	.q_area .q_tit .txt_q{color:#A07DC7}
 	/*.q_area .a_area{position:absolute;left:0;top:22.72%;}*/
-	.q_area .a_area a{position:relative;display:block;padding:5px 5px 5px 60px;font-size:2.03vw;line-height:2.81vw;color:#000;font-weight:700;background:#F5F5F5;text-align:left;border-radius:1.25vw;}
+	.q_area .a_area a{position:relative;display:block;padding:1.51% 3.03% 1.51% 10%;font-size:2.03vw;line-height:2.81vw;color:#000;font-weight:700;background:#F5F5F5;text-align:left;border-radius:1.25vw;}
 	.q_area .a_area a.chk{color:#557CF2}
 	.q_area .a_area a + a{margin-top:3.24%}
-	.q_area .a_area a .q_num{position:absolute;left:5px;top:5px;display:inline-flex;align-items:center;justify-content:center;width:7.94%;font-family:'Jalnan';background:#000;border-radius:50%;font-size:2.22vw;color:#fff;font-weight:700}
-	.q_area .a_area a.chk .q_num{background:#557CF2;}
-	.img_area{position:absolute;left:3.125%;top:2.59%;/*bottom:6.25%;*/display:flex;justify-content:center;align-items:center;width:39.06%;height:72.58%;background:#eee}
+	.q_area .a_area a .q_num{position:absolute;left:3.03%;top:17%;width:5.45%;}
+	/*.q_area .a_area a.chk .q_num{background:#557CF2 url('images/activity/ico_chk.svg') no-repeat 50% 50% / 100% auto;}*/
+	.img_area{position:absolute;left:3.125%;top:2.59%;/*bottom:6.25%;*/width:39.06%;/*height:72.58%;*/}
+	.img_area:before{content:'';display:block;padding-top:100%;}
+	.img_area div{position:absolute;left:0;top:0;right:0;bottom:0;display:flex;justify-content:center;align-items:center;background:#eee}
 	.img_area img{max-width:100%;max-height:100%;}
 
 	.ico_o, .ico_x, .ico_over{position:fixed;left:0;top:0;}
@@ -209,74 +224,122 @@
 	<div class="warning">이 페이지는 가로 보기에 최적화 되어 있습니다. 기기를 회전하여 주세요.</div>
 	<div class="starter">
 		<div class="main_bg">
-			<img src="images/activity/main_quiz.png" alt="">
+			<img src="images/activity/main_quiz.png" alt="퀴즈를 내고 문제의 정답을 맞춰보세요.">
 		</div>
-		<a href="javascript://" class="btn_start"><img src="images/activity/btn_play.png" alt="시작하기" /></a>
+		<a href="javascript://" class="btn_start"><img src="images/activity/btn_play.png" alt="PLAY" /></a>
 	</div>
 	<div class="activity_wrap">
 		<div class="main_bg">
-			<img src="images/activity/bg_quiz.png" alt="">
+			<img src="images/activity/bg_quiz.png" alt="QUIZ SHOW">
 		</div>
 		<div class="head">
 			<img src="images/activity/bg_head_quiz_frame.png" alt="">
-			<span class="q_num">#0<span class="num">1</span></span>
-			<div class="timer">Time : <span class="num">20</span>초</div>
+			<span class="q_num">#<span class="num">01</span></span>
+			<div class="timer">Time : <span class="num">10</span>초</div>
 			<div class="score">Score : <span class="num">0</span></div>
 		</div>
 		<div class="q_content">
 			<div class="round">
 				<div class="img_area">
-					<img src="images/activity/img_bear.png" alt="">
+					<div><img src="images/activity/img_bear.png" alt="문제이미지"></div>
 				</div>
 				<div class="q_area">
-					<p class="q_tit"><span class="txt_q">Q.</span> Look at the picture and choose the right sentence.</p>
+					<p class="q_tit"><span class="txt_q">Q.</span> 11Look at the picture and choose the right sentence.</p>
 					<div class="a_area">
-						<a href="javascript:answerCheck(1);" class="q_1" data="answer"><span class="q_num">1</span>Go past the department</a>
-						<a href="javascript:answerCheck(2);" class="q_2"><span class="q_num">2</span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-						<a href="javascript:answerCheck(3);" class="q_3"><span class="q_num">3</span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-						<a href="javascript:answerCheck(4);" class="q_4"><span class="q_num">4</span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+						<a href="javascript:answerCheck(1);" class="q_1" data="answer">
+							<span class="q_num"><img src="images/activity/num_1.svg" alt="1"></span>
+							<p>Go past the department</p>
+						</a>
+						<a href="javascript:answerCheck(2);" class="q_2">
+							<span class="q_num"><img src="images/activity/num_2.svg" alt="2"></span>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+						</a>
+						<a href="javascript:answerCheck(3);" class="q_3">
+							<span class="q_num"><img src="images/activity/num_3.svg" alt="3"></span>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+						</a>
+						<a href="javascript:answerCheck(4);" class="q_4">
+							<span class="q_num"><img src="images/activity/num_4.svg" alt="4"></span>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+						</a>
 					</div>
 				</div>
 			</div>
 			<div class="round">
 				<div class="img_area">
-					<img src="images/activity/img_bear.png" alt="">
+					<div><img src="images/ico_activity.png" alt="문제이미지"></div>
 				</div>
 				<div class="q_area">
 					<p class="q_tit"><span class="txt_q">Q.</span> Look at the picture and choose the right sentence.</p>
 					<div class="a_area">
-						<a href="javascript:answerCheck(1);" class="q_1" data="answer"><span class="q_num">1</span>Go past the department</a>
-						<a href="javascript:answerCheck(2);" class="q_2"><span class="q_num">2</span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-						<a href="javascript:answerCheck(3);" class="q_3"><span class="q_num">3</span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-						<a href="javascript:answerCheck(4);" class="q_4"><span class="q_num">4</span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+						<a href="javascript:answerCheck(1);" class="q_1" data="answer">
+							<span class="q_num"><img src="images/activity/num_1.svg" alt="1"></span>
+							<p>Go past the department</p>
+						</a>
+						<a href="javascript:answerCheck(2);" class="q_2">
+							<span class="q_num"><img src="images/activity/num_2.svg" alt="2"></span>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+						</a>
+						<a href="javascript:answerCheck(3);" class="q_3">
+							<span class="q_num"><img src="images/activity/num_3.svg" alt="3"></span>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+						</a>
+						<a href="javascript:answerCheck(4);" class="q_4">
+							<span class="q_num"><img src="images/activity/num_4.svg" alt="4"></span>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+						</a>
 					</div>
 				</div>
 			</div>
 			<div class="round">
 				<div class="img_area">
-					<img src="images/activity/img_bear.png" alt="">
+					<div><img src="images/activity/img_bear.png" alt="문제이미지"></div>
 				</div>
 				<div class="q_area">
-					<p class="q_tit"><span class="txt_q">Q.</span> Look at the picture and choose the right sentence.</p>
+					<p class="q_tit"><span class="txt_q">Q.</span> Look at the picture.</p>
 					<div class="a_area">
-						<a href="javascript:answerCheck(1);" class="q_1" data="answer"><span class="q_num">1</span>Go past the department</a>
-						<a href="javascript:answerCheck(2);" class="q_2"><span class="q_num">2</span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-						<a href="javascript:answerCheck(3);" class="q_3"><span class="q_num">3</span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-						<a href="javascript:answerCheck(4);" class="q_4"><span class="q_num">4</span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+						<a href="javascript:answerCheck(1);" class="q_1" data="answer">
+							<span class="q_num"><img src="images/activity/num_1.svg" alt="1"></span>
+							<p>Go past the department</p>
+						</a>
+						<a href="javascript:answerCheck(2);" class="q_2">
+							<span class="q_num"><img src="images/activity/num_2.svg" alt="2"></span>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+						</a>
+						<a href="javascript:answerCheck(3);" class="q_3">
+							<span class="q_num"><img src="images/activity/num_3.svg" alt="3"></span>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+						</a>
+						<a href="javascript:answerCheck(4);" class="q_4">
+							<span class="q_num"><img src="images/activity/num_4.svg" alt="4"></span>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+						</a>
 					</div>
 				</div>
 			</div>
 			<div class="round">
 				<div class="img_area">
-					<img src="images/activity/img_bear.png" alt="">
+					<div><img src="images/activity/img_bear.png" alt="문제이미지"></div>
 				</div>
 				<div class="q_area">
 					<p class="q_tit"><span class="txt_q">Q.</span> Look at the picture and choose the right sentence.</p>
 					<div class="a_area">
-						<a href="javascript:answerCheck(1);" class="q_1" data="answer"><span class="q_num">1</span>Go past the department</a>
-						<a href="javascript:answerCheck(2);" class="q_2"><span class="q_num">2</span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-						<a href="javascript:answerCheck(3);" class="q_3"><span class="q_num">3</span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
-						<a href="javascript:answerCheck(4);" class="q_4"><span class="q_num">4</span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+						<a href="javascript:answerCheck(1);" class="q_1" data="answer">
+							<span class="q_num"><img src="images/activity/num_1.svg" alt="1"></span>
+							<p>Go past the department</p>
+						</a>
+						<a href="javascript:answerCheck(2);" class="q_2">
+							<span class="q_num"><img src="images/activity/num_2.svg" alt="2"></span>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+						</a>
+						<a href="javascript:answerCheck(3);" class="q_3">
+							<span class="q_num"><img src="images/activity/num_3.svg" alt="3"></span>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+						</a>
+						<a href="javascript:answerCheck(4);" class="q_4">
+							<span class="q_num"><img src="images/activity/num_4.svg" alt="4"></span>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -286,7 +349,7 @@
 			<div class="result_box">
 				<div class="score_box">
 					<p><img src="images/activity/img_clear.png" alt="activity Clear! Score"></p>
-					<strong class="txt_score">200</strong>
+					<strong class="txt_score"></strong>
 				</div>
 				<a href="javascript:goRetry();" class="btn_retry"><img src="images/activity/btn_replay.png" alt="다시풀기"></a>
 			</div>
