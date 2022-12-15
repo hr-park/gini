@@ -46,7 +46,7 @@
 	});
 
 	function start(){
-		timer();
+		timerOn();
 		$('.starter').hide();
 		$('.activity_wrap').show();
 		$('.round_1').show();
@@ -56,25 +56,41 @@
 	var qNum = 4;
 	function nextRound(){
 		round++;
-		} else if (round > qNum){
+
+		if ((round-1) > qNum){
 			$('.result_box').fadeIn('fast');
 		} else{
-			timer();
+			timerOn();
 			$('.round_' + (round - 1)).hide();
 			$('.round_' + round).show();
 		}
 	}
 
-	function timer(){
-		var setTime = 2000;
-		function msg_time(){
-			m = Math.floor(setTime % 60) + "초";
-			$('.timer').text(m + '초');
-			setTime--;
-			if (setTime < 0) {    
-				clearInterval(tid);
-			}       
+	//Timer
+	function timerOn(){
+		var setTime = 20;
+		var myVar;
+		function setTimer(){
+			myVar = setInterval(timer, 1000); 
 		}
+		setTimer();
+
+		function timer() {
+			$('.timer .num').text(setTime);
+			if(setTime == 0){
+				clearInterval(myVar);
+				wrong();
+			}
+			setTime--;
+		}
+	}
+
+	function wrong(){
+		$('.ico_x').fadeIn('fast');
+		setTimeout(function(){
+			$('.ico_x').hide();
+			nextRound();
+		}, 2000);
 	}
 
 	function answerCheck(num){
@@ -85,11 +101,7 @@
 				nextRound();
 			}, 2000);
 		} else {
-			$('.ico_x').fadeIn('fast');
-			setTimeout(function(){
-				$('.ico_x').hide();
-				nextRound();
-			}, 2000);
+			wrong();
 		}
 	}
 
@@ -151,7 +163,7 @@
 		<div class="head">
 			<img src="images/activity/bg_head_quiz_frame.png" alt="">
 			<span class="q_num">#01</span>
-			<div class="timer">Time : 20초</div>
+			<div class="timer">Time : <span class="num">20</span>초</div>
 			<div class="score">Score : 200</div>
 		</div>
 		<div class="q_content">
