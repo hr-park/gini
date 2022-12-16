@@ -42,6 +42,39 @@
 		$('.round').each(function(index){
 			$(this).addClass('round_' + (index+1));
 		});
+
+		function fontResize(){
+			$item1 = $('.head .q_num');
+			$item2 = $('.head .timer');
+			$item3 = $('.head .score');
+			$item4 = $('.q_area .q_tit');
+			$item5 = $('.q_area .a_area a');
+			$item6 = $('.result_box .score_box .txt_score');
+
+			if($('.activity_wrap').width() < $(window).innerWidth()){
+				var wRemaining = ($(window).innerWidth() - $('.activity_wrap').width()) * 0.007;
+				$item1.css('font-size', parseFloat($item1.css('fontSize') - wRemaining));
+				$item2.css('font-size', parseFloat($item2.css('fontSize') - wRemaining));
+				$item3.css('font-size', parseFloat($item3.css('fontSize') - wRemaining));
+				$item4.css('font-size', parseFloat($item4.css('fontSize') - wRemaining));
+				$item5.css('font-size', parseFloat($item5.css('fontSize') - wRemaining));
+				$item6.css('font-size', parseFloat($item6.css('fontSize') - wRemaining));
+			} else if($('.activity_wrap').height() < $(window).innerHeight()){
+				var hRemaining = ($(window).innerHeight() - $('.activity_wrap').height()) * 0.007;
+				$item1.css('font-size', parseFloat($item1.css('fontSize') - hRemaining));
+				$item2.css('font-size', parseFloat($item2.css('fontSize') - hRemaining));
+				$item3.css('font-size', parseFloat($item3.css('fontSize') - hRemaining));
+				$item4.css('font-size', parseFloat($item4.css('fontSize') - hRemaining));
+				$item5.css('font-size', parseFloat($item5.css('fontSize') - hRemaining));
+				$item6.css('font-size', parseFloat($item6.css('fontSize') - hRemaining));
+			}
+		}
+
+		fontResize();
+
+		$(window).resize(function(){
+			fontResize();
+		});
 		
 	});
 
@@ -149,10 +182,10 @@
 		$('.q_num .num').text('01');
 		$('.timer .num').text('10');
 		$('.q_area .a_area a.chk').removeClass('chk');
-		$('.q_area .a_area a.q_1 .q_num').find('img').attr('src','images/activity/num_1.svg');
-		$('.q_area .a_area a.q_2 .q_num').find('img').attr('src','images/activity/num_2.svg');
-		$('.q_area .a_area a.q_3 .q_num').find('img').attr('src','images/activity/num_3.svg');
-		$('.q_area .a_area a.q_4 .q_num').find('img').attr('src','images/activity/num_4.svg');
+
+		for (var i = 0; i < 5; i++) {
+			$('.q_area .a_area a.q_'+i+' .q_num').find('img').attr('src','images/activity/num_'+i+'.png');
+		};
 
 		$('.result_box, .round').hide();
 		start();
@@ -247,19 +280,19 @@
 					<p class="q_tit"><span class="txt_q">Q.</span> 11Look at the picture and choose the right sentence.</p>
 					<div class="a_area">
 						<a href="javascript:answerCheck(1);" class="q_1" data="answer">
-							<span class="q_num"><img src="images/activity/num_1.svg" alt="1"></span>
+							<span class="q_num"><img src="images/activity/num_1.png" alt="1"></span>
 							<p>Go past the department</p>
 						</a>
 						<a href="javascript:answerCheck(2);" class="q_2">
-							<span class="q_num"><img src="images/activity/num_2.svg" alt="2"></span>
+							<span class="q_num"><img src="images/activity/num_2.png" alt="2"></span>
 							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 						</a>
 						<a href="javascript:answerCheck(3);" class="q_3">
-							<span class="q_num"><img src="images/activity/num_3.svg" alt="3"></span>
+							<span class="q_num"><img src="images/activity/num_3.png" alt="3"></span>
 							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 						</a>
 						<a href="javascript:answerCheck(4);" class="q_4">
-							<span class="q_num"><img src="images/activity/num_4.svg" alt="4"></span>
+							<span class="q_num"><img src="images/activity/num_4.png" alt="4"></span>
 							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 						</a>
 					</div>
@@ -273,19 +306,19 @@
 					<p class="q_tit"><span class="txt_q">Q.</span> Look at the picture and choose the right sentence.</p>
 					<div class="a_area">
 						<a href="javascript:answerCheck(1);" class="q_1" data="answer">
-							<span class="q_num"><img src="images/activity/num_1.svg" alt="1"></span>
+							<span class="q_num"><img src="images/activity/num_1.png" alt="1"></span>
 							<p>Go past the department</p>
 						</a>
 						<a href="javascript:answerCheck(2);" class="q_2">
-							<span class="q_num"><img src="images/activity/num_2.svg" alt="2"></span>
+							<span class="q_num"><img src="images/activity/num_2.png" alt="2"></span>
 							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 						</a>
 						<a href="javascript:answerCheck(3);" class="q_3">
-							<span class="q_num"><img src="images/activity/num_3.svg" alt="3"></span>
+							<span class="q_num"><img src="images/activity/num_3.png" alt="3"></span>
 							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 						</a>
 						<a href="javascript:answerCheck(4);" class="q_4">
-							<span class="q_num"><img src="images/activity/num_4.svg" alt="4"></span>
+							<span class="q_num"><img src="images/activity/num_4.png" alt="4"></span>
 							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 						</a>
 					</div>
@@ -299,19 +332,19 @@
 					<p class="q_tit"><span class="txt_q">Q.</span> Look at the picture.</p>
 					<div class="a_area">
 						<a href="javascript:answerCheck(1);" class="q_1" data="answer">
-							<span class="q_num"><img src="images/activity/num_1.svg" alt="1"></span>
+							<span class="q_num"><img src="images/activity/num_1.png" alt="1"></span>
 							<p>Go past the department</p>
 						</a>
 						<a href="javascript:answerCheck(2);" class="q_2">
-							<span class="q_num"><img src="images/activity/num_2.svg" alt="2"></span>
+							<span class="q_num"><img src="images/activity/num_2.png" alt="2"></span>
 							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 						</a>
 						<a href="javascript:answerCheck(3);" class="q_3">
-							<span class="q_num"><img src="images/activity/num_3.svg" alt="3"></span>
+							<span class="q_num"><img src="images/activity/num_3.png" alt="3"></span>
 							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 						</a>
 						<a href="javascript:answerCheck(4);" class="q_4">
-							<span class="q_num"><img src="images/activity/num_4.svg" alt="4"></span>
+							<span class="q_num"><img src="images/activity/num_4.png" alt="4"></span>
 							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 						</a>
 					</div>
@@ -325,19 +358,19 @@
 					<p class="q_tit"><span class="txt_q">Q.</span> Look at the picture and choose the right sentence.</p>
 					<div class="a_area">
 						<a href="javascript:answerCheck(1);" class="q_1" data="answer">
-							<span class="q_num"><img src="images/activity/num_1.svg" alt="1"></span>
+							<span class="q_num"><img src="images/activity/num_1.png" alt="1"></span>
 							<p>Go past the department</p>
 						</a>
 						<a href="javascript:answerCheck(2);" class="q_2">
-							<span class="q_num"><img src="images/activity/num_2.svg" alt="2"></span>
+							<span class="q_num"><img src="images/activity/num_2.png" alt="2"></span>
 							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 						</a>
 						<a href="javascript:answerCheck(3);" class="q_3">
-							<span class="q_num"><img src="images/activity/num_3.svg" alt="3"></span>
+							<span class="q_num"><img src="images/activity/num_3.png" alt="3"></span>
 							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 						</a>
 						<a href="javascript:answerCheck(4);" class="q_4">
-							<span class="q_num"><img src="images/activity/num_4.svg" alt="4"></span>
+							<span class="q_num"><img src="images/activity/num_4.png" alt="4"></span>
 							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 						</a>
 					</div>
