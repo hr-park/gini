@@ -1,4 +1,6 @@
 @charset "utf-8";
+@font-face{font-family:'yg-jalnan';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');font-weight:normal;font-style:normal;}
+
 *{box-sizing:border-box;}
 html,body{font:16px/1 'Noto Sans KR', sans-serif;margin:0;padding:0;height:100%;/*min-width:1400px;*/margin:0 auto;}
 body{overflow-y:scroll;}
