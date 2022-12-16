@@ -44,7 +44,11 @@
 		});
 
 		function fontResize(){
-			$item1 = $('.head .q_num');
+			if($('.activity_wrap').width() < $(window).innerWidth() || $('.activity_wrap').height() < $(window).innerHeight()){
+				$('.head .q_num, .head .timer, .q_area .q_tit, .q_area .a_area a, .result_box .score_box .txt_score').css('zoom','0.85');
+			}
+
+			/*$item1 = $('.head .q_num');
 			$item2 = $('.head .timer');
 			$item3 = $('.head .score');
 			$item4 = $('.q_area .q_tit');
@@ -67,7 +71,7 @@
 				$item4.css('font-size', String(parseFloat($item4.css('fontSize') - hRemaining)) + 'px');
 				$item5.css('font-size', String(parseFloat($item5.css('fontSize') - hRemaining)) + 'px');
 				$item6.css('font-size', String(parseFloat($item6.css('fontSize') - hRemaining)) + 'px');
-			}
+			}*/
 		}
 
 		fontResize();
