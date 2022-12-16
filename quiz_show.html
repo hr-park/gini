@@ -15,7 +15,6 @@
 	<meta property="og:image" content="" />
 	<meta property="og:url" content="" />
 	<!--link rel="shortcut icon" href="favicon.ico">-->
-	<link rel="stylesheet" type="text/css" href="css/Jalnan.css">
 	<link rel="stylesheet" type="text/css" href="css/NotoSansKR.css">
 	<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -243,7 +242,11 @@
 
 	.result_box{position:fixed;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,.7);z-index:200;}
 	.result_box .score_box{position:absolute;left:50%;top:4.16%;width:53.12%;height:61.11%;-webkit-transform:translate(-50%, 0);transform:translate(-50%, 0);}
-	.result_box .score_box .txt_score{position:absolute;left:50%;top:50.13%;color:#FFC85F;font-family:'Jalnan';font-size:6.87vw;-webkit-transform:translate(-50%, 0);transform:translate(-50%, 0);}
+	/*.result_box .score_box .txt_score{position:absolute;left:50%;top:50.13%;color:#FFC85F;font-family:'Jalnan';font-size:6.87vw;-webkit-transform:translate(-50%, 0);transform:translate(-50%, 0);}*/
+
+	.result_box .score_box .txt_score{position:absolute;left:50%;top:27.27%;width:35.29%;-webkit-transform:translate(-50%, 0);transform:translate(-50%, 0);border-radius:50%;}
+	.result_box .score_box .txt_score:before{content:'';display:block;padding-top:100%;}
+	.result_box .score_box .txt_score span{position:absolute;left:0;top:0;right:0;bottom:0;display:flex;justify-content:center;align-items:center;color:#FFC85F;font-family:'yg-jalnan';font-size:6.87vw;}
 	.result_box .btn_retry{position:absolute;left:50%;top:70.55%;width:34.375%;height:13.88%;-webkit-transform:translate(-50%, 0);transform:translate(-50%, 0);}
 
 	.mo_view{display:none}
@@ -281,7 +284,7 @@
 					<div><img src="images/activity/img_bear.png" alt="문제이미지"></div>
 				</div>
 				<div class="q_area">
-					<p class="q_tit"><span class="txt_q">Q.</span>11Look at the picture and choose the right sentence.</p>
+					<p class="q_tit"><span class="txt_q">Q.</span> 22Look at the picture and choose the right sentence.</p>
 					<div class="a_area">
 						<a href="javascript:answerCheck(1);" class="q_1" data="answer">
 							<span class="q_num"><img src="images/activity/num_1.png" alt="1"></span>
