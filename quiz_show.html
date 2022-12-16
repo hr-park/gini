@@ -52,17 +52,17 @@
 			$item6 = $('.result_box .score_box .txt_score');
 
 			if($('.activity_wrap').width() < $(window).innerWidth()){
-				var wRemaining = ($(window).innerWidth() - $('.activity_wrap').width()) * 0.007;
-				$item1.css('font-size', parseFloat($item1.css('fontSize') - wRemaining) + 'px');
-				$item2.css('font-size', parseFloat($item2.css('fontSize') - wRemaining) + 'px');
+				var wRemaining = ($(window).innerWidth() - $('.activity_wrap').width()) * 0.002;
+				$item1.css('font-size', String(parseFloat($item1.css('fontSize') - wRemaining)) + 'px');
+				$item2.css('font-size', String(parseFloat($item2.css('fontSize')) - wRemaining) + 'px');
 				$item3.css('font-size', parseFloat($item3.css('fontSize') - wRemaining) + 'px');
 				$item4.css('font-size', parseFloat($item4.css('fontSize') - wRemaining) + 'px');
 				$item5.css('font-size', parseFloat($item5.css('fontSize') - wRemaining) + 'px');
 				$item6.css('font-size', parseFloat($item6.css('fontSize') - wRemaining) + 'px');
 			} else if($('.activity_wrap').height() < $(window).innerHeight()){
-				var hRemaining = ($(window).innerHeight() - $('.activity_wrap').height()) * 0.007;
-				$item1.css('font-size', parseFloat($item1.css('fontSize') - hRemaining) + 'px');
-				$item2.css('font-size', parseFloat($item2.css('fontSize') - hRemaining) + 'px');
+				var hRemaining = ($(window).innerHeight() - $('.activity_wrap').height()) * 0.002;
+				$item1.css('font-size', String(parseFloat($item1.css('fontSize')) - hRemaining) + 'px');
+				$item2.css('font-size', String(parseFloat($item2.css('fontSize')) - hRemaining) + 'px');
 				$item3.css('font-size', parseFloat($item3.css('fontSize') - hRemaining) + 'px');
 				$item4.css('font-size', parseFloat($item4.css('fontSize') - hRemaining) + 'px');
 				$item5.css('font-size', parseFloat($item5.css('fontSize') - hRemaining) + 'px');
