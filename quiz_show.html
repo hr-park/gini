@@ -47,7 +47,7 @@
 				$('.head .q_num, .head .timer, .head .score, .q_area .a_area a').css('zoom','0.85');
 				$('.q_area .q_tit').css({'zoom':'0.75'});
 				$('.result_box .score_box .txt_score .num').css({'zoom':'0.75'});
-				$('.head .timer, .head .score').css({'letter-spacing':'-0.03em'});
+				$('.head .timer, .head .score').css({'letter-spacing':'-0.04em'});
 			}
 		}
 
@@ -102,7 +102,7 @@
 	//Timer
 	var myVar;
 	function setTimer(){
-		var setTime = 10;
+		var setTime = 20;
 		function intervalTimer(){
 			myVar = setInterval(timer, 1000); 
 		}
@@ -195,7 +195,7 @@
 
 	.head{position:fixed;left:0;top:0;z-index:100;width:100%;}
 	.head .q_num{position:absolute;left:26.95%;top:18.27%;display:flex;align-items:center;justify-content:center;height:41.35%;border-radius:20px;padding:0 1.56%;border:2px solid #000;font-weight:900;background:#fff;font-size:1.87vw;color:#000}
-	.head .timer{position:absolute;left:70.78%;top:42.5%;font-size:1.875vw;color:#fff;font-weight:700;letter-spacing:-.02em;}
+	.head .timer{position:absolute;left:70.7%;top:42.5%;font-size:1.875vw;color:#fff;font-weight:700;letter-spacing:-.02em;}
 	.head .score{position:absolute;left:87.26%;top:42.5%;font-size:1.875vw;color:#fff;font-weight:700;letter-spacing:-.02em;}
 	.q_content{position:absolute;left:0;top:14.44%;width:100%;height:calc(100vh - 14.44%);}
 	.q_area{overflow-y:auto;-webkit-overflow-scrolling:touch;height:92.82%;position:absolute;left:49.21%;right:3.43%;top:2.59%;/*bottom:2.59%;*/z-index:100;}
