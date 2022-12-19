@@ -258,7 +258,7 @@ footer{position:absolute;right:20px;bottom:20px;font-size:13px;color:#999}
 .activity_cho{display:flex;justify-content:space-between;align-items:center;}
 .activity_cho > div{position:relative;display:flex;align-items:center;flex-direction:column;width:calc(50% - 10px);height:300px;border:1px solid red;background:blue;border-radius:20px;}
 .activity_cho .ai_box{background:url('../images/ico_ai2.png') no-repeat 50% 28px;}
-.activity_cho .act_box{background:url('../images/ico_activity2images') no-repeat 50% 28px;}
+.activity_cho .act_box{background:url('../images/ico_activity2.png') no-repeat 50% 28px;}
 .activity_cho dl{text-align:center}
 .activity_cho dl img{width:100%}
 .activity_cho .btn_start{display:block;width:100%;height:50px;margin-top:auto;line-height:50px;text-align:center;background:purple;color:#fff;border-radius:0 0 20px 20px}
@@ -353,6 +353,12 @@ footer{position:absolute;right:20px;bottom:20px;font-size:13px;color:#999}
 .pop_code dl dd .url .btn_copy{width:48px;height:48px;background:#fff;border:0 none;background:#000 url('../images/ico_copy.svg') no-repeat 50% 50%;}
 .pop_code dl dd .txt_copy{margin-top:4px;font-size:14px;line-height:20px;color:#01D0B0}
 
+.pop_quiz_show,
+.pop_fill_blank{max-width:1000px;padding:0 50px;box-sizing:border-box;}
+.pop_quiz_show .img_box,
+.pop_fill_blank .img_box{padding:0 50px;}
+.pop_quiz_show .txt_info,
+.pop_fill_blank .txt_info{height:50px;line-height:50px;text-align:center;}
 
 @media all and (max-width:1440px){
 	.main .btn_line{border-width:3px}
