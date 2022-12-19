@@ -30,7 +30,10 @@
 				<style type="text/css">
 					.activity_cho{display:flex;justify-content:space-between;align-items:center;}
 					.activity_cho > div{position:relative;display:flex;align-items:center;flex-direction:column;width:calc(50% - 10px);height:300px;border:1px solid red;background:blue;border-radius:20px;}
+					.activity_cho .ai_box{background:url('images/ico_ai2') no-repeat 50% 28px;}
+					.activity_cho .act_box{background:url('images/ico_activity2') no-repeat 50% 28px;}
 					.activity_cho dl{text-align:center}
+					.activity_cho dl img{width:100%}
 					.activity_cho .btn_start{display:block;width:100%;height:50px;margin-top:auto;line-height:50px;text-align:center;background:purple;color:#fff;border-radius:0 0 20px 20px}
 					.activity_cho .btn_start.preparing{cursor:default;background:gray;color:#000}
 					.activity_cho .btn_start:not(.preparing):hover{background:purple}
@@ -38,20 +41,20 @@
 					.activity_cho .txt_preparing:after{content:'';position:absolute;top:0;left:50%;margin-left:-4px;border-top:8px solid #484848;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:0px solid transparent;transform:rotate(180deg)}
 				</style>
 				<div class="activity_cho">
-					<div>
+					<div class="ai_box">
 						<dl>
 							<dt>11</dt>
 							<dd>bbbbbbbbbbbbb</dd>
-							<dd><img src="" alt=""></dd>
+							<dd><img src="images/img_info_activity.png" alt=""></dd>
 						</dl>
 						<a href="javascript://" class="btn_start preparing">TEST</a>
 						<p class="txt_preparing">NE Times TALK 수강 시 제공 서</p>
 					</div>
-					<div>
+					<div class="act_box">
 						<dl>
 							<dt>22</dt>
 							<dd>bbbbbbbbbbbbb</dd>
-							<dd><img src="" alt=""></dd>
+							<dd><img src="images/img_info_activity.png" alt=""></dd>
 						</dl>
 						<a href="activity_make.html" class="btn_start">NE Times TALK 수강 시 제공 서</a>
 					</div>
