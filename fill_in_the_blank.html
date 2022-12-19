@@ -69,7 +69,7 @@
 
 	var round = 0;
 	var score = 0;
-	var qNum = 4; //문제갯수 넣어주세요
+	var qNum = 3; //문제갯수 넣어주세요
 	
 	function nextRound(){
 		round++;
@@ -199,20 +199,19 @@
 		.main_bg{max-width:100%;max-height:100%;text-align:center;position:relative;}
 		.main_bg img{vertical-align:middle;text-align:center;max-width:100vw;max-height:calc(var(--vh, 1vh) * 100);width:auto;}
 
-		.q_num{position:absolute;left:3.125%;top:13.19%;display:flex;align-items:center;justify-content:center;width:7.5%;height:14.58%;border-radius:20px;font-weight:900;background:#fff;font-size:1.87vw;color:#000;background:url ('images/activity/bg_q_num.png') no-repeat 50% 50% / 100% 100%}
-		.timer{position:absolute;right:3.35%;top:10.55%;width:9.37%;height:13.88%;font-size:1.875vw;color:#fff;font-weight:700;letter-spacing:-.02em;}
-		.score{position:absolute;right:3.35%;top:27.22%;width:9.37%;height:13.88%;font-size:1.875vw;color:#fff;font-weight:700;letter-spacing:-.02em;}
+		.q_num{position:absolute;left:3.125%;top:13.19%;display:flex;align-items:center;justify-content:center;width:7.5%;height:14.58%;border-radius:50%;font-weight:900;background:#fff;font-size:1.87vw;color:#000;background:url(images/activity/bg_q_num.png) no-repeat 50% 50% / 100% auto;}
+		.timer{position:absolute;right:3.35%;top:10.55%;width:9.37%;height:13.88%;font-size:1.875vw;color:#fff;font-weight:700;letter-spacing:-.02em;background:yellow;}
+		.score{position:absolute;right:3.35%;top:27.22%;width:9.37%;height:13.88%;font-size:1.875vw;color:#fff;font-weight:700;letter-spacing:-.02em;background:yellow;}
 		.img_bear{position:absolute;left:1.56%;top:28.33%;width:15.625%;height:33.75%;z-index:2;}
 
-		.q_board{position:relative;overflow-y:auto;-webkit-overflow-scrolling:touch;/*width:74.53%;height:50.55%;*/position:absolute;left:50%;top:4.16%;-webkit-transform:translate(-50%, 0);transform:translate(-50%, 0);}
-		.q_board img{position:absolute;left:0;top:0;width:100%;z-index:1;}
-		.q_board p{position:absolute;left:0;top:10%;width:100%;height:100%;z-index:2;box-sizing:border-box;}
-		.a_area{position:absolute;left:0;top:0;width:100%;height:100%;z-index:1;}
-		.a_area a{position:relative;display:inline-flex;align-items:center;width:39.06%;height:12.22%;padding:1.51% 3.03% 1.51% 10%;font-size:2.03vw;line-height:1.3;color:#000;font-weight:700;background:#fff;text-align:left;border-radius:1.25vw;box-sizing:border-box;}
-		.a_area a.q_1{position:absolute;left:9.37%;top:66.38%}
-		.a_area a.q_2{position:absolute;left:51.56%;top:66.38%}
-		.a_area a.q_3{position:absolute;left:9.37%;top:81.944%}
-		.a_area a.q_4{position:absolute;left:51.56%;top:81.944%}
+		.q_board{position:relative;overflow-y:auto;-webkit-overflow-scrolling:touch;width:74.53%;/*height:50.55%;*/position:absolute;left:50%;top:4.16%;-webkit-transform:translate(-50%, 0);transform:translate(-50%, 0);}
+		.q_board p{position:absolute;left:0;top:30%;z-index:2;width:100%;height:100%;color:#fffbox-sizing:border-box;}
+		.a_area{position:relative;left:0;top:0;width:100%;height:100%;z-index:1;}
+		.a_area a{position:absolute;display:inline-flex;align-items:center;width:39.06%;height:12.22%;padding:1.51% 3.03% 1.51% 10%;font-size:2.03vw;line-height:1.3;color:#000;font-weight:700;background:#fff;text-align:left;border-radius:1.25vw;box-sizing:border-box;}
+		.a_area a.a_1{left:9.37%;top:66.38%}
+		.a_area a.a_2{left:51.56%;top:66.38%}
+		.a_area a.a_3{left:9.37%;top:81.944%}
+		.a_area a.a_4{left:51.56%;top:81.944%}
 		.a_area a.chk{color:#22A255}
 		.a_area a .a_num{position:absolute;left:3.03%;top:17%;width:5.45%;}
 
@@ -242,6 +241,54 @@
 			<div class="timer">Time : <span class="num">20</span>초</div>
 			<div class="score">Score : <span class="num">0</span></div>
 			<span class="img_bear"><img src="images/activity/img_bear.png" alt=""></span>
+			<div class="round">
+				<div class="q_board">
+					<img src="images/activity/board_blank.png" alt="빈 칸에 맞는 단어를 채워보세요.">
+					<p>NE Times는 영자신문과 전화화상영어 ____서비스를 통해 NE능률의 슬로건인 강한 배움의 즐거움 핵심 교육 가치를 실현하고자 항상 노력하고 있습니다.</p>
+				</div>
+				<div class="a_area">
+					<a href="javascript:answerCheck(1);" class="a_1" data="answer">
+						<span class="a_num"><img src="images/activity/num_1.png" alt="1"></span>
+						<p>Amusement park</p>
+					</a>
+					<a href="javascript:answerCheck(2);" class="a_2">
+						<span class="a_num"><img src="images/activity/num_2.png" alt="2"></span>
+						<p>come</p>
+					</a>
+					<a href="javascript:answerCheck(3);" class="a_3">
+						<span class="a_num"><img src="images/activity/num_3.png" alt="3"></span>
+						<p>go</p>
+					</a>
+					<a href="javascript:answerCheck(4);" class="a_4">
+						<span class="a_num"><img src="images/activity/num_4.png" alt="4"></span>
+						<p>get</p>
+					</a>
+				</div>
+			</div>
+			<div class="round">
+				<div class="q_board">
+					<img src="images/activity/board_blank.png" alt="빈 칸에 맞는 단어를 채워보세요.">
+					<p>NE Times는 영자신문과 전화화상영어 ____서비스를 통해 NE능률의 슬로건인 강한 배움의 즐거움 핵심 교육 가치를 실현하고자 항상 노력하고 있습니다.</p>
+				</div>
+				<div class="a_area">
+					<a href="javascript:answerCheck(1);" class="a_1" data="answer">
+						<span class="a_num"><img src="images/activity/num_1.png" alt="1"></span>
+						<p>Amusement park</p>
+					</a>
+					<a href="javascript:answerCheck(2);" class="a_2">
+						<span class="a_num"><img src="images/activity/num_2.png" alt="2"></span>
+						<p>come</p>
+					</a>
+					<a href="javascript:answerCheck(3);" class="a_3">
+						<span class="a_num"><img src="images/activity/num_3.png" alt="3"></span>
+						<p>go</p>
+					</a>
+					<a href="javascript:answerCheck(4);" class="a_4">
+						<span class="a_num"><img src="images/activity/num_4.png" alt="4"></span>
+						<p>get</p>
+					</a>
+				</div>
+			</div>
 			<div class="round">
 				<div class="q_board">
 					<img src="images/activity/board_blank.png" alt="빈 칸에 맞는 단어를 채워보세요.">
