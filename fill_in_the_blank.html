@@ -44,10 +44,10 @@
 		//폰트 리사이징
 		function fontResize(){
 			if($('.activity_wrap').width() < $(window).innerWidth() || $('.activity_wrap').height() < $(window).innerHeight()){
-				$('.head .q_num, .q_area .a_area a').css('zoom','0.85');
-				$('.q_area .q_tit').css({'zoom':'0.75'});
+				$('.q_num, .a_area a').css('zoom','0.85');
+				$('.q_board').css({'zoom':'0.75'});
 				$('.result_box .score_box .txt_score .num').css({'zoom':'0.75'});
-				$('.head .timer, .head .score').css({'letter-spacing':'-0.04em', 'zoom':'0.75'});
+				$('.timer, .score').css({'letter-spacing':'-0.04em', 'zoom':'0.75'});
 			}
 		}
 
@@ -142,11 +142,11 @@
 	function answerCheck(num){
 		clearInterval(myVar);
 		if($('.round_'+round).find('.a_area a.chk').length < 1){
-			$('.round_'+round).find('.a_area .q_' + num).addClass('chk');
-			$('.round_'+round).find('.a_area .q_' + num).find('img').attr('src','images/activity/ico_chk.svg');
+			$('.round_'+round).find('.a_area .a_' + num).addClass('chk');
+			$('.round_'+round).find('.a_area .a_' + num).find('img').attr('src','images/activity/ico_chk2.svg');
 		}
 		
-		if($('.round_'+round).find('.a_area').find('.q_' + num).attr('data') == 'answer'){
+		if($('.round_'+round).find('.a_area').find('.a_' + num).attr('data') == 'answer'){
 			//정답
 			score += 100;
 			$('.ico_o').fadeIn('slow');
@@ -167,10 +167,10 @@
 		$('.score .num').text(score);
 		$('.q_num .num').text('01');
 		$('.timer .num').text('10');
-		$('.q_area .a_area a.chk').removeClass('chk');
+		$('.a_area a.chk').removeClass('chk');
 
 		for (var i = 0; i < 5; i++) {
-			$('.q_area .a_area a.q_'+i+' .q_num').find('img').attr('src','images/activity/num_'+i+'.png');
+			$('.a_area a.q_'+i+' .q_num').find('img').attr('src','images/activity/num_'+i+'.png');
 		};
 
 		$('.result_box, .round').hide();
@@ -190,7 +190,7 @@
 		html, body{background-color:#000;height:100%;vertical-align:middle;overflow:hidden;}
 		.warning{display:none;}
 		.starter{overflow:hidden;position:absolute;margin:0 auto;display:inline-block;text-align:center;left:50%;top:50%;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%);}
-		.starter a{display:block;position:absolute;left:32.34%;top:70.83%;width:35.31%;z-index:150}
+		.starter a{display:block;position:absolute;left:32.34%;bottom:20.13%;width:35.31%;z-index:150}
 		.btn_retry a{display:block;position:fixed;left:50%;top:50%;width:17.54%;-webkit-transform:translate(-50%, -50%);transform:translate(-50%, -50%);}
 		.ico_o, .ico_x, .ico_over, .result_box{display:none;position:fixed;left:0;top:0;z-index:200;}
 
@@ -199,22 +199,20 @@
 		.main_bg{max-width:100%;max-height:100%;text-align:center;position:relative;}
 		.main_bg img{vertical-align:middle;text-align:center;max-width:100vw;max-height:calc(var(--vh, 1vh) * 100);width:auto;}
 
-		.head{position:fixed;left:0;top:0;z-index:100;width:100%;}
-		.head .q_num{position:absolute;left:26.95%;top:18.27%;display:flex;align-items:center;justify-content:center;height:41.35%;border-radius:20px;padding:0 1.56%;border:2px solid #000;font-weight:900;background:#fff;font-size:1.87vw;color:#000}
-		.head .timer{position:absolute;left:70.7%;top:42.5%;font-size:1.875vw;color:#fff;font-weight:700;letter-spacing:-.02em;}
-		.head .score{position:absolute;left:87.26%;top:42.5%;font-size:1.875vw;color:#fff;font-weight:700;letter-spacing:-.02em;}
-		.q_content{position:absolute;left:0;top:14.44%;width:100%;height:calc(100vh - 14.44%);}
-		.q_area{overflow-y:auto;-webkit-overflow-scrolling:touch;height:92.82%;position:absolute;left:49.21%;right:3.43%;top:2.59%;/*bottom:2.59%;*/z-index:100;}
-		.q_area .q_tit{margin-bottom:2.92%;text-align:left;font-size:2.81vw;color:#000;line-height:1.3;font-weight:700;letter-spacing:-.02em;}
-		.q_area .q_tit .txt_q{color:#A07DC7}
-		.q_area .a_area a{position:relative;display:block;padding:1.51% 3.03% 1.51% 10%;font-size:2.03vw;line-height:1.3;color:#000;font-weight:700;background:#F5F5F5;text-align:left;border-radius:1.25vw;}
-		.q_area .a_area a.chk{color:#557CF2}
-		.q_area .a_area a + a{margin-top:3.24%}
-		.q_area .a_area a .q_num{position:absolute;left:3.03%;top:17%;width:5.45%;}
-		.img_area{position:absolute;left:3.125%;top:2.59%;/*bottom:6.25%;*/width:39.06%;/*height:72.58%;*/}
-		.img_area:before{content:'';display:block;padding-top:100%;}
-		.img_area div{position:absolute;left:0;top:0;right:0;bottom:0;display:flex;justify-content:center;align-items:center;background:#eee}
-		.img_area img{max-width:100%;max-height:100%;}
+		.q_num{position:absolute;left:3.125%;top:13.19%;display:flex;align-items:center;justify-content:center;width:7.5%;height:14.58%;border-radius:20px;padding:0 1.56%;border:2px solid #000;font-weight:900;background:#fff;font-size:1.87vw;color:#000;background:url('images/activity/bg_q_num.png') no-repeat 50% 50%}
+		.timer{position:absolute;right:3.35%;top:10.55%;width:9.37%;height:13.88%;font-size:1.875vw;color:#fff;font-weight:700;letter-spacing:-.02em;}
+		.score{position:absolute;right:3.35%;top:27.22%;width:9.37%;height:13.88%;font-size:1.875vw;color:#fff;font-weight:700;letter-spacing:-.02em;}
+		.img_bear{position:absolute;left:1.56%;top:28.33%;width:15.625%;height:33.75%;z-index:2;}
+
+		.q_board{overflow-y:auto;-webkit-overflow-scrolling:touch;width:74.53%;height:50.55%;position:absolute;left:50%;top:4.16%;background:url('images/activity/board_blank.png') no-repeat 50% 50% / 100% auto}
+		.a_area{position:absolute;left:0;top:0;z-index:1;}
+		.a_area a{position:relative;display:inline-block;width:39.06%;height:12.22%;padding:1.51% 3.03% 1.51% 10%;font-size:2.03vw;line-height:1.3;color:#000;font-weight:700;background:#fff;text-align:left;border-radius:1.25vw;box-sizing:border-box;}
+		.a_area a.q_1{position:absolute;left:9.37%;top:66.38%}
+		.a_area a.q_2{position:absolute;left:51.56%;top:66.38%}
+		.a_area a.q_3{position:absolute;left:9.37%;top:81.944%}
+		.a_area a.q_4{position:absolute;left:51.56%;top:81.944%}
+		.a_area a.chk{color:#22A255}
+		.a_area a .a_num{position:absolute;left:3.03%;top:17%;width:5.45%;}
 
 		.result_box{position:fixed;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,.7);z-index:200;}
 		.result_box .score_box{position:absolute;left:50%;top:4.16%;width:53.12%;height:61.11%;-webkit-transform:translate(-50%, 0);transform:translate(-50%, 0);}
@@ -238,127 +236,42 @@
 			<div class="main_bg">
 				<img src="images/activity/bg_blank.png" alt="Fill in the Blank">
 			</div>
-			<div class="head">
-				<img src="images/activity/bg_head_quiz_frame.png" alt="">
-				<span class="q_num">#<span class="num">01</span></span>
-				<div class="timer">Time : <span class="num">20</span>초</div>
-				<div class="score">Score : <span class="num">0</span></div>
+			<span class="q_num">#<span class="num">01</span></span>
+			<div class="timer">Time : <span class="num">20</span>초</div>
+			<div class="score">Score : <span class="num">0</span></div>
+			<span class="img_bear"><img src="images/activity/img_bear.png" alt=""></span>
+			<div class="round">
+				<div class="q_board">
+					<p>NE Times는 영자신문과 전화화상영어 ____서비스를 통해 NE능률의 슬로건인 강한 배움의 즐거움 핵심 교육 가치를 실현하고자 항상 노력하고 있습니다.</p>
+				</div>
+				<div class="a_area">
+					<a href="javascript:answerCheck(1);" class="q_1" data="answer">
+						<span class="a_num"><img src="images/activity/num_1.png" alt="1"></span>
+						<p>Amusement park</p>
+					</a>
+					<a href="javascript:answerCheck(2);" class="q_2">
+						<span class="a_num"><img src="images/activity/num_2.png" alt="2"></span>
+						<p>come</p>
+					</a>
+					<a href="javascript:answerCheck(3);" class="q_3">
+						<span class="a_num"><img src="images/activity/num_3.png" alt="3"></span>
+						<p>go</p>
+					</a>
+					<a href="javascript:answerCheck(4);" class="q_4">
+						<span class="a_num"><img src="images/activity/num_4.png" alt="4"></span>
+						<p>get</p>
+					</a>
+				</div>
 			</div>
-			<div class="q_content">
-				<div class="round">
-					<div class="img_area">
-						<div><img src="images/activity/img_bear.png" alt="문제이미지"></div>
-					</div>
-					<div class="q_area">
-						<p class="q_tit"><span class="txt_q">Q.</span> Look at the picture and choose the right sentence.</p>
-						<div class="a_area">
-							<a href="javascript:answerCheck(1);" class="q_1" data="answer">
-								<span class="q_num"><img src="images/activity/num_1.png" alt="1"></span>
-								<p>Amusement park</p>
-							</a>
-							<a href="javascript:answerCheck(2);" class="q_2">
-								<span class="q_num"><img src="images/activity/num_2.png" alt="2"></span>
-								<p>come</p>
-							</a>
-							<a href="javascript:answerCheck(3);" class="q_3">
-								<span class="q_num"><img src="images/activity/num_3.png" alt="3"></span>
-								<p>go</p>
-							</a>
-							<a href="javascript:answerCheck(4);" class="q_4">
-								<span class="q_num"><img src="images/activity/num_4.png" alt="4"></span>
-								<p>get</p>
-							</a>
-						</div>
-					</div>
+			<span class="ico_o"><img src="images/activity/ico_o.png" alt="O"></span>
+			<span class="ico_x"><img src="images/activity/ico_x.png" alt="X"></span>
+			<span class="ico_over"><img src="images/activity/ico_over.png" alt="Time over"></span>
+			<div class="result_box">
+				<div class="score_box">
+					<p><img src="images/activity/img_clear.png" alt="activity Clear! Score"></p>
+					<strong class="txt_score"><span class="num"></span></strong>
 				</div>
-				<div class="round">
-					<div class="img_area">
-						<div><img src="images/ico_activity.png" alt="문제이미지"></div>
-					</div>
-					<div class="q_area">
-						<p class="q_tit"><span class="txt_q">Q.</span> Look at the picture and choose the right sentence.</p>
-						<div class="a_area">
-							<a href="javascript:answerCheck(1);" class="q_1" data="answer">
-								<span class="q_num"><img src="images/activity/num_1.png" alt="1"></span>
-								<p>Amusement park</p>
-							</a>
-							<a href="javascript:answerCheck(2);" class="q_2">
-								<span class="q_num"><img src="images/activity/num_2.png" alt="2"></span>
-								<p>come</p>
-							</a>
-							<a href="javascript:answerCheck(3);" class="q_3">
-								<span class="q_num"><img src="images/activity/num_3.png" alt="3"></span>
-								<p>go</p>
-							</a>
-							<a href="javascript:answerCheck(4);" class="q_4">
-								<span class="q_num"><img src="images/activity/num_4.png" alt="4"></span>
-								<p>get</p>
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="round">
-					<div class="img_area">
-						<div><img src="images/activity/main_blank.png" alt="문제이미지"></div>
-					</div>
-					<div class="q_area">
-						<p class="q_tit"><span class="txt_q">Q.</span> Look at the picture.</p>
-						<div class="a_area">
-							<a href="javascript:answerCheck(1);" class="q_1" data="answer">
-								<span class="q_num"><img src="images/activity/num_1.png" alt="1"></span>
-								<p>Amusement park</p>
-							</a>
-							<a href="javascript:answerCheck(2);" class="q_2">
-								<span class="q_num"><img src="images/activity/num_2.png" alt="2"></span>
-								<p>come</p>
-							</a>
-							<a href="javascript:answerCheck(3);" class="q_3">
-								<span class="q_num"><img src="images/activity/num_3.png" alt="3"></span>
-								<p>go</p>
-							</a>
-							<a href="javascript:answerCheck(4);" class="q_4">
-								<span class="q_num"><img src="images/activity/num_4.png" alt="4"></span>
-								<p>get</p>
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="round">
-					<div class="img_area">
-						<div><img src="images/activity/img_bear.png" alt="문제이미지"></div>
-					</div>
-					<div class="q_area">
-						<p class="q_tit"><span class="txt_q">Q.</span> Look at the picture and choose the right sentence.</p>
-						<div class="a_area">
-							<a href="javascript:answerCheck(1);" class="q_1" data="answer">
-								<span class="q_num"><img src="images/activity/num_1.png" alt="1"></span>
-								<p>Amusement park</p>
-							</a>
-							<a href="javascript:answerCheck(2);" class="q_2">
-								<span class="q_num"><img src="images/activity/num_2.png" alt="2"></span>
-								<p>come</p>
-							</a>
-							<a href="javascript:answerCheck(3);" class="q_3">
-								<span class="q_num"><img src="images/activity/num_3.png" alt="3"></span>
-								<p>go</p>
-							</a>
-							<a href="javascript:answerCheck(4);" class="q_4">
-								<span class="q_num"><img src="images/activity/num_4.png" alt="4"></span>
-								<p>get</p>
-							</a>
-						</div>
-					</div>
-				</div>
-				<span class="ico_o"><img src="images/activity/ico_o.png" alt="O"></span>
-				<span class="ico_x"><img src="images/activity/ico_x.png" alt="X"></span>
-				<span class="ico_over"><img src="images/activity/ico_over.png" alt="Time over"></span>
-				<div class="result_box">
-					<div class="score_box">
-						<p><img src="images/activity/img_clear.png" alt="activity Clear! Score"></p>
-						<strong class="txt_score"><span class="num"></span></strong>
-					</div>
-					<a href="javascript:goRetry();" class="btn_retry"><img src="images/activity/btn_replay.png" alt="다시풀기"></a>
-				</div>
+				<a href="javascript:goRetry();" class="btn_retry"><img src="images/activity/btn_replay.png" alt="다시풀기"></a>
 			</div>
 		</div>
 	</div>
