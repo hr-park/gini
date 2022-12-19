@@ -23,63 +23,89 @@
 <body>
 	<!-- wrap -->
 	<div class="wrap">
+		<!-- Header -->
+		<header>
+			<div class="inner">
+				<h1><a href="javascript://">Interactive Content</a></h1>
+				<div class="util">
+					<span class="user">UserId1234 선생님</span>
+					<a href="javascript://">LOGOUT</a>
+				</div>
+			</div>
+		</header>
+		<nav>
+			<div class="inner">
+				<ul>
+					<li class="add on"><a href="#">학습 Activity 만들기</a></li>
+					<li class="list"><a href="#">나의 Activity 리스트</a></li>
+				</ul>
+				<a href="javascript://" class="btn_hw">숙제하기</a>
+			</div>
+		</nav>
 		<!--// Header -->
 		<!-- Content -->
 		<div id="content">
-			<div class="inner">
-				<h2>NE Times TALK 수강 시 제공 서</h2>
-				<div class="activity_make">
-					<div>
-						<div class="img_box"><img src="images/activity/main_quiz.png" alt=""></div>
-						<dl>
-							<dt>11</dt>
-							<dd>bbbbbbbbbbbbb</dd>
-						</dl>
-						<a href="#" class="btn_make">TEST</a>
-						<a href="#" class="btn_pop" onclick="javascript:openPop('pop_quiz_show');">dddd</a>
-					</div>
-					<div>
-						<div class="img_box"><img src="images/activity/main_blank.png" alt=""></div>
-						<dl>
-							<dt>22</dt>
-							<dd>bbbbbbbbbbbbb</dd>
-						</dl>
-						<a href="#" class="btn_make">TEST</a>
-						<a href="#" class="btn_pop" onclick="javascript:openPop('pop_fill_blank');">dddd</a>
+			<div class="bg_body">
+				<div class="inner">
+					<h2>나만의 학습 Activity 만들기</h2>
+					<div class="activity_make">
+						<div>
+							<div class="img_box"><img src="images/activity/main_quiz.png" alt=""></div>
+							<dl>
+								<dt>Quiz show</dt>
+								<dd>퀴즈의 정답을 맞춰보세요.</dd>
+							</dl>
+							<a href="#" class="btn_sm bg_blue btn_make">Activity 만들기</a>
+							<a href="#" class="btn_pop" onclick="javascript:openPop('pop_quiz_show');">dddd</a>
+						</div>
+						<div>
+							<div class="img_box"><img src="images/activity/main_blank.png" alt=""></div>
+							<dl>
+								<dt>Fill in the blank</dt>
+								<dd>빈 칸의 단어를 채워보세요.</dd>
+							</dl>
+							<a href="#" class="btn_sm bg_blue btn_make">Activity 만들기</a>
+							<a href="#" class="btn_pop" onclick="javascript:openPop('pop_fill_blank');">dddd</a>
+						</div>
 					</div>
 				</div>
 			</div>
 			<div class="dim"></div>
 			<!-- pop_quiz_show -->
-			<div id="pop_quiz_show" class="pop_wrap pop_quiz_show">
+			<div id="pop_quiz_show" class="pop_wrap pop_activity">
 				<div class="pop_head">
 					<p class="tit">Quiz Show</p>
 					<button type="button" onclick="javascript:closePop('pop_quiz_show');" class="btn_pop_close">팝업닫기</button>
 				</div>
 				<!-- pop_cont -->
 				<div class="pop_cont">
-					<div class="img_box"><img src="images/activity/main_quiz.png" alt=""></div>
-					<p class="txt_info">bbbbbbbbbbbbb bbbbbbbbbbbbb cc</p>
+					<div class="img_box"><img src="images/activity/main_quiz.png" alt="Quiz show"></div>
+					<p class="txt_info">퀴즈를 내고 문제의 정답을 클릭해보세요!</p>
 				</div>
 				<!--// pop_cont -->
 			</div>
 			<!--// pop_quiz_show -->
 			<!-- pop_fill_blank -->
-			<div id="pop_fill_blank" class="pop_wrap pop_fill_blank">
+			<div id="pop_fill_blank" class="pop_wrap pop_activity">
 				<div class="pop_head">
-					<p class="tit">ddddd</p>
+					<p class="tit">Fill in the Blank</p>
 					<button type="button" onclick="javascript:closePop('pop_fill_blank');" class="btn_pop_close">팝업닫기</button>
 				</div>
 				<!-- pop_cont -->
 				<div class="pop_cont">
-					<div class="img_box"><img src="images/activity/main_blank.png" alt=""></div>
-					<p class="txt_info">bbbbbbbbbbbbb bbbbbbbbbbbbb cc</p>
+					<div class="img_box"><img src="images/activity/main_blank.png" alt="Fill in the Blank"></div>
+					<p class="txt_info">문장의 빈 칸을 채워보세요!</p>
 				</div>
 				<!--// pop_cont -->
 			</div>
 			<!--// pop_fill_blank -->
 		</div>
 		<!--// Content -->
+		<!-- Footer -->
+		<footer>
+			<p>&copy; 2023 Woonjincompass. All Rights Reserved.</p>
+		</footer>
+		<!--// Footer -->
 	</div>
 	<!--// wrap -->
 </body>
