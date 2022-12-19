@@ -36,7 +36,7 @@
 							<dd>bbbbbbbbbbbbb</dd>
 						</dl>
 						<a href="#" class="btn_make">TEST</a>
-						<a href="#" class="btn_pop">dddd</a>
+						<a href="#" class="btn_pop" onclick="javascript:openPop('pop_quiz_show');">dddd</a>
 					</div>
 					<div>
 						<div class="img_box"><img src="images/activity/main_blank.png" alt=""></div>
@@ -45,11 +45,39 @@
 							<dd>bbbbbbbbbbbbb</dd>
 						</dl>
 						<a href="#" class="btn_make">TEST</a>
-						<a href="#" class="btn_pop">dddd</a>
+						<a href="#" class="btn_pop" onclick="javascript:openPop('pop_fill_blank');">dddd</a>
 					</div>
 				</div>
-				
 			</div>
+			<div class="dim"></div>
+			<!-- pop_quiz_show -->
+			<div id="pop_quiz_show" class="pop_wrap pop_quiz_show">
+				<div class="pop_head">
+					<p class="tit">Quiz Show</p>
+					<button type="button" onclick="javascript:closePop('pop_quiz_show');" class="btn_pop_close">팝업닫기</button>
+				</div>
+				<!-- pop_cont -->
+				<div class="pop_cont">
+					<img src="images/activity/main_quiz.png" alt="">
+					<p class="txt_info">bbbbbbbbbbbbb bbbbbbbbbbbbb cc</p>
+				</div>
+				<!--// pop_cont -->
+			</div>
+			<!--// pop_quiz_show -->
+			<!-- pop_fill_blank -->
+			<div id="pop_fill_blank" class="pop_wrap pop_fill_blank">
+				<div class="pop_head">
+					<p class="tit">ddddd</p>
+					<button type="button" onclick="javascript:closePop('pop_fill_blank');" class="btn_pop_close">팝업닫기</button>
+				</div>
+				<!-- pop_cont -->
+				<div class="pop_cont">
+					<img src="images/activity/main_blank.png" alt="">
+					<p class="txt_info">bbbbbbbbbbbbb bbbbbbbbbbbbb cc</p>
+				</div>
+				<!--// pop_cont -->
+			</div>
+			<!--// pop_fill_blank -->
 		</div>
 		<!--// Content -->
 	</div>
