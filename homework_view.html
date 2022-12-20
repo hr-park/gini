@@ -38,7 +38,7 @@
 
 		//코드복사
 		function codeCopy(){
-			var copyText = $('.act_code').text();
+			var copyText = $('.pop_code .url input').attr('value');
 			var textArea = document.createElement("textarea");
 			textArea.value = copyText;
 			document.body.appendChild(textArea);
