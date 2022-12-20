@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge ,chrome=1" />
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">-->
+	<title>Interactive Contents</title>
+	<link rel="canonical" href="" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="" />
+	<meta property="og:site_name" content="" />
+	<meta property="og:description" content="" />
+	<meta property="og:image" content="" />
+	<meta property="og:url" content="" />
+	<!--link rel="shortcut icon" href="favicon.ico">-->
+	<link rel="stylesheet" type="text/css" href="css/NotoSansKR.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/common.js"></script>
+	<script>
+		$(function(){
+			//숙제 기간 설정
+			$("#s_date, #e_date").datepicker({
+				dateFormat: "yy-mm-dd",
+			});
+			//숙제 기간, 시간 설정 후 코드발급 팝업 OPEN
+			$('#pop_task_make .btn_code').click(function(){
+				$('#pop_task_make').hide();
+				$('#pop_code').show();
+			});
+		});
+
+		//코드(URL)복사
+		function clip(){
+			var copyText = $('.pop_code .url input').attr('value');
+			var textArea = document.createElement("textarea");
+			textArea.value = copyText;
+			document.body.appendChild(textArea);
+			textArea.select();
+			document.execCommand("Copy");
+			textArea.remove();
+			if($('.pop_code .txt_copy').length < 1){
+				$('.pop_code .url').after('<p class="txt_copy">URL이 복사되었습니다.</p>');
+			}
+		}
+	</script>
+</head>
+<body>
+	<!-- wrap -->
+	<div class="wrap">
+		<!-- Header -->
+		<header>
+			<div class="inner">
+				<h1><a href="javascript://">Interactive Content</a></h1>
+				<div class="util">
+					<span class="user">UserId1234 선생님</span>
+					<a href="javascript://">LOGOUT</a>
+				</div>
+			</div>
+		</header>
+		<nav>
+			<div class="inner">
+				<ul>
+					<li class="add on"><a href="#">학습 Activity 만들기</a></li>
+					<li class="list"><a href="#">나의 Activity 리스트</a></li>
+				</ul>
+				<a href="javascript://" class="btn_hw">숙제하기</a>
+			</div>
+		</nav>
+		<!--// Header -->
+		<!-- Content -->
+		<div id="content">
+			<div class="bg_body">
+				<h2>나만의 학습 Activity 만들기</h2>
+				<div class="inner">
+					<div class="view_wrap">
+						<div class="activity_area">
+							<!-- Quiz show -->
+							<img src="images/activity/main_quiz.png" alt="QUIZSHOW">
+							<a href="quiz_show.html" class="btn_play" target="_blank"><img src="images/activity/btn_play.png" alt="시작하기"></a>
+							<!-- Fill in the blank 
+							<img src="images/activity/main_blank.png" alt="Fill in the blank">
+							<a href="javascript://" class="btn_play"><img src="images/activity/btn_play.png" alt="시작하기"></a>-->
+						</div>
+						<a href="javascript:openPop('pop_task_make');" class="btn_make btn_sm_ico bg_blue">숙제만들기</a>
+					</div>
+				</div>
+			</div>
+			<div class="dim"></div>
+			<!-- pop_task_make -->
+			<div id="pop_task_make" class="pop_wrap pop_task_make">
+				<div class="pop_head">
+					<p class="tit">숙제 만들기 - (나만의) 게임명 | 문제개수</p>
+					<button type="button" onclick="javascript:closePop('pop_task_make');" class="btn_pop_close">팝업닫기</button>
+				</div>
+				<!-- pop_cont -->
+				<div class="pop_cont">
+					<div class="tit_box">
+						<input type="text" name="" id="" placeholder="" value="[#제목]" onfocus="" readonly>
+					</div>
+					<div class="set_area">
+						<dl>
+							<dt>숙제기간</dt>
+							<dd class="cal_area">
+								<input type="text" id="s_date" class="inp_cal">
+								<span class="term">~</span>
+								<input type="text" id="e_date" class="inp_cal">
+							</dd>
+						</dl>
+						<dl>
+							<dt>1 문제 당 시간 설정</dt>
+							<dd class="radio_area">
+								<input type="radio" name="q_time" id="q_time_10s" value="">
+								<label for="q_time_10s">10초</label>
+							</dd>
+							<dd class="radio_area">
+								<input type="radio" name="q_time" id="q_time_20s" value="">
+								<label for="q_time_20s">20초</label>
+							</dd>
+							<dd class="radio_area">
+								<input type="radio" name="q_time" id="q_time_30s" value="">
+								<label for="q_time_30s">30초</label>
+							</dd>
+						</dl>
+					</div>
+				</div>
+				<!--// pop_cont -->
+				<!-- pop_foot -->
+				<div class="pop_foot">
+					<a href="javascript://" class="btn_code">코드 발급</a>
+				</div>
+				<!--// pop_foot -->
+			</div>
+			<!--// pop_task_make -->
+
+			<!-- pop_code -->
+			<div id="pop_code" class="pop_wrap pop_code">
+				<div class="pop_head">
+					<p class="tit">코드(URL) 발급</p>
+					<button type="button" onclick="javascript:closePop('pop_code');" class="btn_pop_close">팝업닫기</button>
+				</div>
+				<!-- pop_cont -->
+				<div class="pop_cont">
+					<dl>
+						<dt>URL</dt>
+						<dd>
+							<div class="url">
+								<input type="text" value="Interactive.com/ABCD-1234" readonly>
+								<button type="button" class="btn_copy" onclick="javascript:clip();"></button>
+							</div>
+						</dd>
+					</dl>
+				</div>
+				<!--// pop_cont -->
+				<!-- pop_foot -->
+				<div class="pop_foot">
+					<a href="javascript://" onclick="javascript:closePop('pop_code');">창 닫기</a>
+				</div>
+				<!--// pop_foot -->
+			</div>
+			<!--// pop_code -->
+		</div>
+		<!--// Content -->
+		<!-- Footer -->
+		<footer>
+			<p>&copy; 2023 Woonjincompass. All Rights Reserved.</p>
+		</footer>
+		<!--// Footer -->
+	</div>
+	<!--// wrap -->
+</body>
+</html>
