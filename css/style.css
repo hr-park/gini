@@ -50,6 +50,7 @@ input[type=text]:foucs{border-bottom:1px solid #82308e !important;color:#82308e 
 .mt20{margin-top:20px}
 .mt40{margin-top:40px}
 .mr5{margin-right:5px}
+.t_center{text-align:center}
 
 /* Check & Radio */
 input[type="checkbox"]{visibility:hidden;position:absolute;}
