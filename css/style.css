@@ -242,6 +242,7 @@ footer{position:absolute;right:20px;bottom:20px;font-size:13px;color:#999}
 .view_wrap .view_top p{font-size:20px;font-weight:700;color:#000}
 .view_wrap .view_top .btn_make:before{content:'';display:inline-block;width:17px;height:20px;margin-right:6px;background:url('../images/ico_book.svg') no-repeat 0 50%;}
 .view_wrap .view_top .btn_code:before{content:'';display:inline-block;width:34px;height:16px;margin-right:6px;background:url('../images/ico_code.svg') no-repeat 0 50%;}
+.view_wrap .view_top .btn_copy:before{content:'';display:inline-block;width:34px;height:16px;margin-right:6px;background:url('../images/ico_copy.svg') no-repeat 0 50%;}
 .view_wrap .activity_area{position:relative;padding:40px 70px;justify-content:center;}
 .view_wrap .activity_area .btn_play{position:absolute;left:32.34%;top:calc(70.83% - 40px);width:35.31%;}
 .view_wrap .tb_tit{margin-bottom:10px;font-size:20px;color:#000;font-weight:700}
