@@ -244,8 +244,9 @@ footer{position:absolute;right:20px;bottom:20px;font-size:13px;color:#999}
 .view_wrap .view_top .btn_make:before{content:'';display:inline-block;width:17px;height:20px;margin-right:6px;background:url('../images/ico_book.svg') no-repeat 0 50%;}
 .view_wrap .view_top .btn_code:before{content:'';display:inline-block;width:34px;height:16px;margin-right:6px;background:url('../images/ico_code.svg') no-repeat 0 50%;}
 .view_wrap .view_top .btn_copy:before{content:'';display:inline-block;width:27px;height:32px;margin-right:6px;background:url('../images/ico_copy.svg') no-repeat 0 50%;}
-.view_wrap .view_top .txt_copy{display:none;position:absolute;right:0;top:0;display:inline-flex;justify-content:space-between;padding:5px 16px;border-radius:5px;background:yellow}
-.view_wrap .view_top .txt_copy p{margin-right:20px;font-size:16px;font-weight:700;}
+.view_wrap .view_top .txt_copy{display:none;position:absolute;right:0;top:0;display:inline-flex;justify-content:space-between;padding:5px 16px;border-radius:20px;background:#FFC85F}
+.view_wrap .view_top .txt_copy:after{content:'';position:absolute;bottom:-7px;left:50%;margin-left:-4px;border-top:8px solid #FFC85F;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:0px solid transparent;transform:rotate(180deg)}
+.view_wrap .view_top .txt_copy p{margin-right:15px;font-size:16px;font-weight:700;}
 .view_wrap .view_top .txt_copy button{display:inline-block;width:20px;height:20px;border:0 none;text-indnet:-9999px;background:url('../images/btn_close.svg') no-repeat 50% 50%;}
 .view_wrap .activity_area{position:relative;padding:40px 70px;justify-content:center;}
 .view_wrap .activity_area .btn_play{position:absolute;left:32.34%;top:calc(70.83% - 40px);width:35.31%;}
