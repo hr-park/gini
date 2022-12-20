@@ -243,7 +243,7 @@ footer{position:absolute;right:20px;bottom:20px;font-size:13px;color:#999}
 .view_wrap .view_top p{font-size:20px;font-weight:700;color:#000}
 .view_wrap .view_top .btn_make:before{content:'';display:inline-block;width:17px;height:20px;margin-right:6px;background:url('../images/ico_book.svg') no-repeat 0 50%;}
 .view_wrap .view_top .btn_code:before{content:'';display:inline-block;width:34px;height:16px;margin-right:6px;background:url('../images/ico_code.svg') no-repeat 0 50%;}
-.view_wrap .view_top .btn_copy:before{content:'';display:inline-block;width:34px;height:16px;margin-right:6px;background:url('../images/ico_copy.svg') no-repeat 0 50%;}
+.view_wrap .view_top .btn_copy:before{content:'';display:inline-block;width:27px;height:32px;margin-right:6px;background:url('../images/ico_copy.svg') no-repeat 0 50%;}
 .view_wrap .view_top .txt_copy{display:none;position:absolute;right:0;top:0;display:inline-flex;justify-content:space-between;padding:5px 16px;border-radius:5px;background:yellow}
 .view_wrap .view_top .txt_copy p{margin-right:20px;font-size:16px;font-weight:700;}
 .view_wrap .view_top .txt_copy button{display:inline-block;width:20px;height:20px;border:0 none;text-indnet:-9999px;background:url('../images/btn_close.svg') no-repeat 50% 50%;}
