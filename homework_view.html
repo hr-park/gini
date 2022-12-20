@@ -22,7 +22,7 @@
 	<script src="js/jquery-ui.min.js"></script>
 	<script src="js/common.js"></script>
 	<script>
-		//코드(URL)복사
+		//팝업 내 코드(URL)복사
 		function clip(){
 			var copyText = $('.pop_code .url input').attr('value');
 			var textArea = document.createElement("textarea");
@@ -34,6 +34,26 @@
 			if($('.pop_code .txt_copy').length < 1){
 				$('.pop_code .url').after('<p class="txt_copy">URL이 복사되었습니다.</p>');
 			}
+		}
+
+		//코드복사
+		function codeCopy(){
+			var copyText = $('.act_code').text();
+			var textArea = document.createElement("textarea");
+			textArea.value = copyText;
+			document.body.appendChild(textArea);
+			textArea.select();
+			document.execCommand("Copy");
+			textArea.remove();
+
+			$('.view_top .txt_copy').fadeIn('fast');
+			
+		}
+
+		//코드복사문구 히든처리
+		function txtCopyHide(){
+			$('.view_top .txt_copy').hide();
+			
 		}
 	</script>
 </head>
@@ -74,8 +94,13 @@
 			<div class="inner">
 				<div class="view_wrap">
 					<div class="view_top">
-						<p>숙제 상세 <strong class="color_blue">(ABCD-1234)</strong></p>
-						<a href="javascript:openPop('pop_code');" class="btn_code btn_sm_ico bg_blue">코드발급</a>
+						<p>숙제 상세 <strong class="act_code color_blue">(ABCD-1234)</strong></p>
+						<!--<a href="javascript:openPop('pop_code');" class="btn_code btn_sm_ico bg_blue">코드발급</a>-->
+						<a href="javascript:codeCopy();" class="btn_copy btn_sm_ico bg_blue">코드복사</a>
+						<div class="txt_copy">
+							<p>코드(URL)이 복사되었습니다.</p>
+							<button type="button" onclick="javascript:txtCopyHide();">닫기</button>
+						</div>
 					</div>
 					<div class="activity_area">
 						<!-- Quiz show 
