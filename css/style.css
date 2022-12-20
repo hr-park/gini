@@ -104,6 +104,9 @@ input[type="radio"]:checked + label:after{background:url('../images/ico_radio_on
 .btn_reset:before{content:'';display:inline-block;width:17px;height:20px;margin-right:6px;background:url('../images/ico_reset.svg') no-repeat 0 50%;}
 .btn_data{border:1px solid var(--color-blue);color:var(--color-blue);}
 .btn_data:before{content:'';display:inline-block;width:17px;height:20px;margin-right:6px;background:url('../images/ico_data_add.svg') no-repeat 0 50%;}
+.btn_hw_make{border:1px solid var(--color-blue);color:var(--color-blue);}
+.btn_hw_make:before{content:'';display:inline-block;width:17px;height:20px;margin-right:6px;background:url('../images/ico_book.svg') no-repeat 0 50%;}
+
 
 .ico_status{display:inline-block;width:64px;height:64px;border-radius:32px;font-size:16px;font-weight:700;line-height:60px;border-width:2px;border-style:solid}
 .ico_status.ing{color:#557CF2;border-color:#557CF2}
