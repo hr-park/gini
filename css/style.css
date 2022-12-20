@@ -239,7 +239,7 @@ footer{position:absolute;right:20px;bottom:20px;font-size:13px;color:#999}
 .view_wrap .view_top .btn_make:before{content:'';display:inline-block;width:17px;height:20px;margin-right:6px;background:url('../images/ico_book.svg') no-repeat 0 50%;}
 .view_wrap .view_top .btn_code:before{content:'';display:inline-block;width:34px;height:16px;margin-right:6px;background:url('../images/ico_code.svg') no-repeat 0 50%;}
 .view_wrap .activity_area{position:relative;padding:40px 70px;justify-content:center;}
-.view_wrap .activity_area .btn_play{position:absolute;left:32.34%;top:calc(70.83% - 40px);width:35.31%;z-index:150}
+.view_wrap .activity_area .btn_play{position:absolute;left:32.34%;top:calc(70.83% - 40px);width:35.31%;}
 .view_wrap .tb_tit{margin-bottom:10px;font-size:20px;color:#000;font-weight:700}
 .view_wrap table{border-left:1px solid #ccc;}
 .view_wrap table th{background:#F5F5F5;text-align:center;padding:10px 18px;font-size:16px;line-height:24px;color:#000;font-weight:700;border-right:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #ccc}
