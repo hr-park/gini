@@ -47,7 +47,7 @@
 				$('.q_num, .a_area a').css('zoom','0.85');
 				$('.q_board p').css({'zoom':'0.85'});
 				$('.result_box .score_box .txt_score .num').css({'zoom':'0.75'});
-				$('.timer, .score').css({'letter-spacing':'-0.04em', 'zoom':'0.75'});
+				$('.timer .dp_flex .num, .score .dp_flex .num').css({'line-height':'1.2', 'zoom':'0.65'});
 			}
 		}
 
@@ -200,7 +200,7 @@
 		.main_bg img{vertical-align:middle;text-align:center;max-width:100vw;max-height:calc(var(--vh, 1vh) * 100);width:auto;}
 
 		.q_num{position:absolute;left:3.125%;top:13.19%;width:7.5%;height:14.58%;border-radius:50%;font-weight:900;font-size:3.125vw;color:#000;}
-		.q_num > span{position:absolute;left:0;top:29.52%;width:100%;height:100%;}
+		.q_num > span{position:absolute;left:0;top:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding-bottom:12.04%;box-sizing:border-box;}
 		.timer{position:absolute;right:3.35%;top:10.55%;width:9.37%;font-size:1.875vw;color:#fff;font-weight:700;letter-spacing:-.02em;}
 		.timer .dp_flex{position:absolute;left:0;top:0%;width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction: column;}
 		.timer .dp_flex span{font-weight:900;}
