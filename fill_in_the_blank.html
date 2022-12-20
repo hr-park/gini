@@ -44,7 +44,7 @@
 		//폰트 리사이징
 		function fontResize(){
 			if($('.activity_wrap').width() < $(window).innerWidth() || $('.activity_wrap').height() < $(window).innerHeight()){
-				$('.q_num, .a_area a').css('zoom','0.85');
+				$('.q_num > span, .a_area a').css('zoom','0.85');
 				$('.q_board p').css({'zoom':'0.85'});
 				$('.result_box .score_box .txt_score .num').css({'zoom':'0.75'});
 				$('.timer .dp_flex .num, .score .dp_flex .num').css({'line-height':'1.2', 'zoom':'0.65'});
