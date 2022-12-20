@@ -244,9 +244,9 @@ footer{position:absolute;right:20px;bottom:20px;font-size:13px;color:#999}
 .view_wrap .view_top .btn_make:before{content:'';display:inline-block;width:17px;height:20px;margin-right:6px;background:url('../images/ico_book.svg') no-repeat 0 50%;}
 .view_wrap .view_top .btn_code:before{content:'';display:inline-block;width:34px;height:16px;margin-right:6px;background:url('../images/ico_code.svg') no-repeat 0 50%;}
 .view_wrap .view_top .btn_copy:before{content:'';display:inline-block;width:34px;height:16px;margin-right:6px;background:url('../images/ico_copy.svg') no-repeat 0 50%;}
-.view_wrap .view_top .txt_copy{position:absolute;left:0;top:0;display:inline-flex;justify-content:space-between;padding:5px 16px;border-radius:5px;}
+.view_wrap .view_top .txt_copy{display:none;position:absolute;right:0;top:0;display:inline-flex;justify-content:space-between;padding:5px 16px;border-radius:5px;background:yellow}
 .view_wrap .view_top .txt_copy p{margin-right:20px;font-size:16px;font-weight:700;}
-.view_wrap .view_top .txt_copy button{display:inline-block;width:20px;height:20px;background:url('../images/btn_close.svg') no-repeat 50% 50%;}
+.view_wrap .view_top .txt_copy button{display:inline-block;width:20px;height:20px;border:0 none;text-indnet:-9999px;background:url('../images/btn_close.svg') no-repeat 50% 50%;}
 .view_wrap .activity_area{position:relative;padding:40px 70px;justify-content:center;}
 .view_wrap .activity_area .btn_play{position:absolute;left:32.34%;top:calc(70.83% - 40px);width:35.31%;}
 .view_wrap .tb_tit{margin-bottom:10px;font-size:20px;color:#000;font-weight:700}
@@ -302,7 +302,7 @@ footer{position:absolute;right:20px;bottom:20px;font-size:13px;color:#999}
 .pop_wrap .pop_head .btn_pop_close{display:inline-block;width:24px;height:24px;border:0 none;background:url('../images/btn_pop_close.svg') no-repeat;text-indent:-9999px}
 .pop_wrap .pop_cont{background:#fff;}
 .pop_wrap .pop_foot{padding:12px 0;border-top:1px solid #ccc;text-align:center;background:#fff;}
-.pop_wrap .pop_foot a{display:inline-block;width:160px;height:40px;line-height:40px;text-align:center;font-size:18px;font-weight:700;background:#000;color:#fff;vertical-align:middle;}
+.pop_wrap .pop_foot a{display:inline-block;width:160px;height:40px;line-height:38px;text-align:center;font-size:18px;font-weight:700;background:#000;color:#fff;vertical-align:middle;}
 .pop_wrap .pop_foot a.btn_line{border-width:1px;border-color:#557CF2;color:#557CF2;background:#fff;font-weight:700}
 
 .pop_data{width:1000px}
