@@ -50,6 +50,7 @@ input[type=text]:foucs{border-bottom:1px solid #82308e !important;color:#82308e 
 .mt20{margin-top:20px}
 .mt40{margin-top:40px}
 .mr5{margin-right:5px}
+.mr15{margin-right:15px}
 .t_center{text-align:center}
 
 /* Check & Radio */
@@ -301,7 +302,7 @@ footer{position:absolute;right:20px;bottom:20px;font-size:13px;color:#999}
 .pop_wrap .pop_head .btn_pop_close{display:inline-block;width:24px;height:24px;border:0 none;background:url('../images/btn_pop_close.svg') no-repeat;text-indent:-9999px}
 .pop_wrap .pop_cont{background:#fff;}
 .pop_wrap .pop_foot{padding:12px 0;border-top:1px solid #ccc;text-align:center;background:#fff;}
-.pop_wrap .pop_foot a{display:inline-block;width:160px;height:40px;line-height:40px;text-align:center;font-size:18px;font-weight:700;background:#000;color:#fff}
+.pop_wrap .pop_foot a{display:inline-block;width:160px;height:40px;line-height:40px;text-align:center;font-size:18px;font-weight:700;background:#000;color:#fff;vertical-align:middle;}
 .pop_wrap .pop_foot a.btn_line{border-width:1px;border-color:#557CF2;color:#557CF2;background:#fff;font-weight:700}
 
 .pop_data{width:1000px}
